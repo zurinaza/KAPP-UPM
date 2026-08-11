@@ -53,7 +53,7 @@ html[data-theme="pink"] {
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--page); color: var(--ink);
-  font: 400 17px/1.65 var(--sans); -webkit-text-size-adjust: 100%;
+  font: 400 19px/1.62 var(--sans); -webkit-text-size-adjust: 100%;
 }
 h1,h2,h3,h4 { color: var(--head); margin: 0; line-height: 1.25; font-weight: 700; }
 p { margin: 0 0 1em; } p:last-child { margin-bottom: 0; }
@@ -73,22 +73,22 @@ button { font-family: inherit; }
 .topbar__mark {
   width: 42px; height: 42px; border-radius: var(--r-md); flex: none;
   background: var(--accent-600); color: #fff;
-  display: grid; place-items: center; font-size: 20px;
+  display: grid; place-items: center; font-size: 22px;
 }
-.topbar__title { font-size: 18px; }
+.topbar__title { font-size: 20px; }
 .topbar__sub {
-  font-size: 13px; font-weight: 700; letter-spacing: .06em;
+  font-size: 17px; font-weight: 700; letter-spacing: .06em;
   text-transform: uppercase; color: var(--muted); margin-top: 3px;
 }
 .topbar__right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
 .stat { text-align: right; }
-.stat span { display: block; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--muted); }
-.stat b { font-size: 20px; color: var(--head); }
+.stat span { display: block; font-size: 17px; font-weight: 600; text-transform: uppercase; color: var(--muted); }
+.stat b { font-size: 22px; color: var(--head); }
 .stat b.mono { font-family: ui-monospace, Menlo, monospace; color: var(--accent-600); }
 .themeBtn {
   display: flex; align-items: center; gap: 8px; cursor: pointer;
   background: var(--card); border: 1px solid var(--line);
-  border-radius: var(--r-sm); padding: 8px 12px; font-size: 14px; font-weight: 600; color: var(--ink);
+  border-radius: var(--r-sm); padding: 8px 12px; font-size: 17.5px; font-weight: 600; color: var(--ink);
 }
 .themeBtn:hover { background: var(--page); }
 .themeBtn i { width: 16px; height: 16px; border-radius: 50%; background: var(--accent-600); display: block; }
@@ -102,7 +102,7 @@ button { font-family: inherit; }
   position: sticky; top: 71px; height: calc(100vh - 71px);
 }
 .side h2 {
-  font-size: 14px; font-weight: 700; letter-spacing: .12em;
+  font-size: 17.5px; font-weight: 700; letter-spacing: .12em;
   text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
 }
 .side nav { flex: 1; overflow-y: auto; padding-right: 16px; }
@@ -111,12 +111,12 @@ button { font-family: inherit; }
   display: flex; align-items: center; gap: 12px; width: 100%;
   text-align: left; cursor: pointer; background: none; border: 0;
   border-radius: var(--r-md); padding: 11px 12px; margin-bottom: 4px;
-  font-size: 16px; line-height: 1.3; color: var(--ink);
+  font-size: 18px; line-height: 1.3; color: var(--ink);
 }
 .tab:hover { background: var(--page); }
 .tab .n {
   width: 26px; height: 26px; border-radius: 50%; flex: none;
-  display: grid; place-items: center; font-size: 12px; font-weight: 700;
+  display: grid; place-items: center; font-size: 16px; font-weight: 700;
   background: var(--page); color: var(--muted);
 }
 .tab[aria-current="true"] {
@@ -131,8 +131,8 @@ button { font-family: inherit; }
 }
 .note__head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .note__head img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.3); }
-.note__head span { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
-.note p { font-size: 14px; font-style: italic; margin: 0; color: #fff; }
+.note__head span { font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+.note p { font-size: 17.5px; font-style: italic; margin: 0; color: #fff; }
 
 main { flex: 1; min-width: 0; padding: 34px 32px 70px; }
 .view { max-width: 1000px; }
@@ -141,20 +141,42 @@ main { flex: 1; min-width: 0; padding: 34px 32px 70px; }
 
 .foot {
   background: var(--card); border-top: 1px solid var(--line);
-  padding: 12px 28px; font-size: 13px; color: var(--muted);
+  padding: 12px 28px; font-size: 17px; color: var(--muted);
   display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 
 /* ===========================================================================
    3. TYPE + PRIMITIVES
    ========================================================================= */
-h2.h { font-size: 27px; margin-bottom: 12px; }
-h3.h { font-size: 22px; margin-bottom: 12px; }
-h4.h { font-size: 18px; margin-bottom: 8px; }
-.lede { font-size: 17px; color: var(--ink); max-width: 74ch; }
-.small { font-size: 15px; color: var(--ink); }
+h2.h { font-size: 29px; margin-bottom: 12px; }
+h3.h { font-size: 24px; margin-bottom: 12px; }
+h4.h { font-size: 20px; margin-bottom: 8px; }
+.lede { font-size: 19px; color: var(--ink); max-width: 74ch; }
+.small { font-size: 17px; color: var(--ink); }
+.fig {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 22px; box-shadow: var(--shadow);
+  margin-bottom: 20px; overflow-x: auto;
+}
+.fig svg { width: 100%; height: auto; min-width: 600px; display: block; }
+.fig figcaption { font-size: 17.5px; color: var(--muted); margin-top: 12px; text-align: center; }
+
+/* Layer indent: depth is shown physically, not just stated. */
+.layer[data-d="2"] { margin-left: 26px; }
+.layer[data-d="3"] { margin-left: 52px; }
+.layer[data-d="4"] { margin-left: 78px; }
+@media (max-width: 940px) { .layer[data-d] { margin-left: 0; } }
+
+.sechead { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+.sechead .n {
+  width: 36px; height: 36px; border-radius: 10px; flex: none;
+  background: var(--accent-600); color: #fff;
+  display: grid; place-items: center; font-size: 17px; font-weight: 700;
+}
+.sechead h3 { margin: 0; font-size: 24px; }
+.sechead p { margin: 6px 0 0; font-size: 17px; color: var(--ink); }
 .eyebrow {
-  display: inline-block; font-size: 13px; font-weight: 700;
+  display: inline-block; font-size: 17px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--accent-600);
   margin-bottom: 10px;
 }
@@ -177,18 +199,18 @@ h4.h { font-size: 18px; margin-bottom: 8px; }
 .dark h3, .dark h4 { color: #fff; }
 .dark p { color: var(--on-dark); }
 .navy { background: linear-gradient(135deg,#0b2050,#16336e); color: #fff; border-radius: var(--r-lg); padding: 28px; }
-.navy p.stmt { font-size: 21px; font-weight: 700; color: #fff; line-height: 1.4; }
-.navy p.sub  { font-size: 16px; color: #b9c6de; margin: 12px 0 0; }
+.navy p.stmt { font-size: 23px; font-weight: 700; color: #fff; line-height: 1.4; }
+.navy p.sub  { font-size: 18px; color: #b9c6de; margin: 12px 0 0; }
 
 .pill {
   display: inline-block; background: var(--head); color: #fff;
   border-radius: var(--r-sm); padding: 5px 11px;
-  font-size: 13px; font-weight: 700;
+  font-size: 17px; font-weight: 700;
 }
 .pill--accent { background: var(--accent-600); }
 .dot {
   width: 30px; height: 30px; border-radius: 50%; flex: none;
-  display: grid; place-items: center; font-size: 14px; font-weight: 700;
+  display: grid; place-items: center; font-size: 17.5px; font-weight: 700;
   background: var(--accent-100); color: var(--accent-700);
 }
 .dot--solid { background: var(--accent-600); color: #fff; }
@@ -199,9 +221,9 @@ h4.h { font-size: 18px; margin-bottom: 8px; }
   border-radius: var(--r-md); padding: 16px 20px; margin-bottom: 10px;
 }
 .row__k { min-width: 220px; font-weight: 700; color: var(--head); }
-.row__k small { display: block; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
-.row__v { flex: 1; min-width: 260px; font-size: 16px; }
-.hint { margin-top: 10px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--ok-bg); color: var(--ok-ink); font-size: 15px; }
+.row__k small { display: block; font-size: 17px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.row__v { flex: 1; min-width: 260px; font-size: 18px; }
+.hint { margin-top: 10px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--ok-bg); color: var(--ok-ink); font-size: 17px; }
 
 ul.ticks { list-style: none; margin: 0; padding: 0; }
 ul.ticks li { position: relative; padding-left: 28px; margin-bottom: 10px; }
@@ -213,14 +235,14 @@ ul.ticks li::before {
 .switch { display: inline-flex; background: var(--page); border: 1px solid var(--line); border-radius: var(--r-md); padding: 4px; gap: 4px; }
 .switch button {
   border: 0; background: none; cursor: pointer; border-radius: var(--r-sm);
-  padding: 10px 18px; font-size: 15px; font-weight: 700; color: var(--muted);
+  padding: 10px 18px; font-size: 17px; font-weight: 700; color: var(--muted);
 }
 .switch button[aria-pressed="true"] { background: var(--card); color: var(--head); box-shadow: var(--shadow); }
 
 .btn {
   display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
   background: var(--accent-600); color: #fff; border: 1px solid var(--accent-600);
-  border-radius: var(--r-sm); padding: 12px 20px; font-size: 16px; font-weight: 700;
+  border-radius: var(--r-sm); padding: 12px 20px; font-size: 18px; font-weight: 700;
 }
 .btn:hover { background: var(--accent-700); border-color: var(--accent-700); }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
@@ -232,7 +254,7 @@ ul.ticks li::before {
 label.f { display: block; margin-bottom: 20px; }
 label.f > span { display: block; font-weight: 700; color: var(--head); margin-bottom: 8px; }
 textarea, input[type=text] {
-  width: 100%; font: 400 16px/1.6 var(--sans); color: var(--ink);
+  width: 100%; font: 400 18px/1.6 var(--sans); color: var(--ink);
   background: var(--card); border: 1px solid var(--line-2);
   border-radius: var(--r-sm); padding: 12px 14px; resize: vertical;
 }
@@ -246,9 +268,9 @@ textarea::placeholder, input::placeholder { color: #4b5563; }
   border-radius: var(--r-md); padding: 16px 20px; margin-bottom: 10px;
 }
 .layer--on { background: var(--accent-50); border-color: var(--accent-500); }
-.layer b { min-width: 200px; font-size: 17px; color: var(--head); }
-.layer b small { display: block; font-size: 14px; font-weight: 400; color: var(--muted); margin-top: 3px; }
-.layer span { flex: 1; min-width: 250px; font-size: 16px; }
+.layer b { min-width: 200px; font-size: 19px; color: var(--head); }
+.layer b small { display: block; font-size: 17.5px; font-weight: 400; color: var(--muted); margin-top: 3px; }
+.layer span { flex: 1; min-width: 250px; font-size: 18px; }
 
 /* Steps */
 .steps { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
@@ -256,9 +278,9 @@ textarea::placeholder, input::placeholder { color: #4b5563; }
 .steps__list button {
   display: block; width: 100%; text-align: left; cursor: pointer;
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md);
-  padding: 14px 16px; margin-bottom: 8px; font-size: 16px; color: var(--ink);
+  padding: 14px 16px; margin-bottom: 8px; font-size: 18px; color: var(--ink);
 }
-.steps__list button b { display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.steps__list button b { display: block; font-size: 16px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
 .steps__list button[aria-pressed="true"] { background: var(--accent-600); border-color: var(--accent-600); color: #fff; }
 .steps__list button[aria-pressed="true"] b { color: rgba(255,255,255,.75); }
 .steps__panel { flex: 2 1 360px; }
@@ -266,23 +288,23 @@ textarea::placeholder, input::placeholder { color: #4b5563; }
 /* Quiz */
 .quiz { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 26px; box-shadow: var(--shadow); }
 .quiz__top { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
-.quiz__count { font-size: 14px; font-weight: 600; color: var(--muted); }
+.quiz__count { font-size: 17.5px; font-weight: 600; color: var(--muted); }
 .meter { height: 6px; background: var(--page); border-radius: 3px; overflow: hidden; margin-bottom: 22px; }
 .meter i { display: block; height: 100%; background: var(--accent-600); transition: width .3s ease; }
 .scenario {
   background: var(--page); border-left: 4px solid var(--accent-500);
   border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 14px 18px;
-  font-size: 17px; margin-bottom: 18px;
+  font-size: 19px; margin-bottom: 18px;
 }
 .qtext { font-weight: 700; color: var(--head); margin-bottom: 16px; }
 .opt {
   display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
   cursor: pointer; background: var(--card); border: 1px solid var(--line);
   border-radius: var(--r-md); padding: 16px 18px; margin-bottom: 10px;
-  font-size: 16px; color: var(--ink);
+  font-size: 18px; color: var(--ink);
 }
 .opt:hover:not(:disabled) { background: var(--page); }
-.opt .mark { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line-2); flex: none; display: grid; place-items: center; font-size: 13px; color: #fff; }
+.opt .mark { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line-2); flex: none; display: grid; place-items: center; font-size: 17px; color: #fff; }
 .opt[aria-pressed="true"] { background: var(--accent-50); border-color: var(--accent-600); }
 .opt[aria-pressed="true"] .mark { border-color: var(--accent-600); border-width: 6px; }
 .opt[data-s="right"] { background: var(--ok-bg); border-color: var(--ok-line); }
@@ -299,23 +321,30 @@ textarea::placeholder, input::placeholder { color: #4b5563; }
 .result .ring {
   width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 18px;
   display: grid; place-items: center; background: var(--accent-50);
-  color: var(--accent-700); font-size: 26px; font-weight: 700;
+  color: var(--accent-700); font-size: 28px; font-weight: 700;
 }
 
 /* Case study tabs */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
 .chips button {
   cursor: pointer; background: var(--card); border: 1px solid var(--line);
-  border-radius: var(--r-sm); padding: 9px 14px; font-size: 15px; font-weight: 600; color: var(--ink);
+  border-radius: var(--r-sm); padding: 9px 14px; font-size: 17px; font-weight: 600; color: var(--ink);
 }
 .chips button[aria-pressed="true"] { background: var(--accent-600); border-color: var(--accent-600); color: #fff; }
+.chips--big button {
+  padding: 14px 26px; font-size: 19px; font-weight: 700;
+  border-width: 2px; border-radius: var(--r-md);
+}
+.chips--big button[aria-pressed="false"] { border-color: var(--line-2); }
+.chips--big button:hover { border-color: var(--accent-600); color: var(--accent-700); }
+.chips--big button[aria-pressed="true"]:hover { color: #fff; }
 
 .speaker { display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start; }
 .speaker > img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-500); flex: none; }
 .awards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 16px; }
 .awards div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-sm); padding: 12px 14px; }
-.awards b { display: block; font-size: 15px; color: #fff; }
-.awards small { font-size: 13.5px; color: var(--on-dark); }
+.awards b { display: block; font-size: 17px; color: #fff; }
+.awards small { font-size: 17px; color: var(--on-dark); }
 
 .fade { animation: fade .25s ease both; }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -402,15 +431,15 @@ const PHILOSOPHIES = [
 ];
 
 const TESTS = [
-  ["It is intentional", "It answers a problem you actually identified in your own course — not a trend, and not a call for proposals.", "Chasing a tool because everyone is talking about it."],
-  ["It changes what students do", "Their cognitive process differs. What happens inside the student's head is not the same as before.", "Same task, new device. The thinking is unchanged."],
-  ["It is evidenced", "You can show that something improved — marks, attainment, competency, or transfer to a new context.", "Students said they enjoyed it, and nothing else was measured."]
+  ["It is intentional", "It answers a problem you identified — not a trend.", "Chasing a tool everyone is talking about."],
+  ["It changes what students do", "Their thinking differs, not just their equipment.", "Same task, new device."],
+  ["It is evidenced", "You can show something improved.", "They enjoyed it, and nothing was measured."]
 ];
 
 const LAYERS = [
-  ["Theory", "The account of how people learn", "Constructivism, active learning, multisensory learning", false],
-  ["Pedagogical approach", "The named model you are drawing on", "PBL, flipped classroom, experiential, collaborative, challenge-based", false],
-  ["Learning activity", "The specific thing students actually do", "Build the tower, dry the sample, trace the line on the real plant", true],
+  ["Theory", "How people learn", "Constructivism, active learning, multisensory", false],
+  ["Pedagogical approach", "The named model", "PBL, flipped, experiential, challenge-based", false],
+  ["Learning activity", "What students do", "Build the tower, dry the sample, trace the line", true],
   ["Tool", "What you deliver it with", "Kahoot, video, Visio, a rubric, an AI model", false]
 ];
 
@@ -425,12 +454,12 @@ const DRIVERS = [
 ];
 
 const TYPES = [
-  ["Curriculum &amp; content", "What is taught, the sequence, and its currency with industry practice."],
-  ["Pedagogy &amp; delivery", "How it is taught — flipped, PBL, collaborative, immersive."],
-  ["Assessment", "What is graded and how. The highest-leverage type, and the one lecturers assume they may not touch."],
-  ["Learning environment", "Lab, pilot plant, site visit, outdoor, virtual, or the industry floor."],
-  ["Technology-enabled", "Only counts as innovation when the tool changes the activity, not just the delivery."],
-  ["Learning support", "Peer teaching, mentoring, self-access material, video demos."]
+  ["Curriculum &amp; content", "What is taught, and its currency with industry."],
+  ["Pedagogy &amp; delivery", "Flipped, PBL, collaborative, immersive."],
+  ["Assessment", "Highest leverage — and the one you assume you may not touch."],
+  ["Learning environment", "Lab, pilot plant, site visit, outdoor, virtual."],
+  ["Technology-enabled", "Counts only when the tool changes the activity."],
+  ["Learning support", "Peer teaching, mentoring, self-access material."]
 ];
 
 const PEDAGOGIES = [
@@ -444,21 +473,21 @@ const PEDAGOGIES = [
 ];
 
 const MACRO = [
-  ["Curriculum &amp; course syllabus", "Faculty / Senate", "Approved at faculty level and locked for the accreditation cycle.", "You cannot remove a topic — but the depth, sequence and framing within it are yours."],
-  ["CO–PO mapping", "Programme committee", "Each Course Outcome is formally mapped to Programme Outcomes and taxonomy levels.", "The mapping is fixed; how you evidence attainment against it is not."],
-  ["EAC requirements (WK / WP / EA)", "Engineering Accreditation Council", "Knowledge Profiles, Complex Problem attributes and Engineering Activities are externally defined.", "You choose which activities demonstrate them — and most courses under-use EA."],
-  ["Credit hours &amp; SLT", "University", "Student Learning Time is fixed by the credit structure.", "The split between lecture, tutorial and independent learning within it is negotiable."],
-  ["Timetable &amp; room allocation", "Faculty administration", "Slots and venues are centrally scheduled across programmes.", "Book a lab, plant or outdoor space early and the venue stops being a constraint."],
-  ["Student list &amp; cohort size", "Registrar", "You teach whoever enrols, in whatever number.", "Grouping, pairing and roles within the cohort are entirely your design."]
+  ["Curriculum &amp; course syllabus", "Faculty / Senate", "Locked for the accreditation cycle.", "Depth, sequence and framing are still yours."],
+  ["CO–PO mapping", "Programme committee", "Outcomes formally mapped to taxonomy levels.", "How you evidence attainment is not fixed."],
+  ["Accreditation bodies requirements", "", "Understand audit requirements.", ""],
+  ["Credit hours &amp; SLT", "University", "Fixed by the credit structure.", "The lecture / tutorial / independent split is negotiable."],
+  ["Timetable &amp; rooms", "Faculty administration", "Centrally scheduled across programmes.", "Book a lab or plant early and the venue stops being a constraint."],
+  ["Student list &amp; cohort size", "Registrar", "You teach whoever enrols.", "Grouping, pairing and roles are your design."]
 ];
 
 const MICRO = [
-  ["Lecture notes &amp; teaching materials", "Everything students read, watch or handle is authored by you.", "Replace a static diagram with a video demo, or a real object they can handle."],
-  ["Delivery mode &amp; platform", "How the content reaches them — and whether they are passive while it does.", "Flip the lecture, run a space lecture, or bring in an industry speaker."],
-  ["Learning activities", "The single highest-value thing you control: what students actually DO.", "Build a tower, dry a sample, trace a live line on the pilot plant."],
-  ["Assessment design &amp; format", "Within the approved weighting, the FORM of the assessment is yours.", "An experiment-based test instead of a paper test, at the same 15%."],
-  ["Sequencing within a topic", "What comes first changes what students are ready to understand.", "Let them fail at the problem first, then teach the method they needed."],
-  ["Feedback &amp; classroom climate", "How safe it feels to be wrong determines how much thinking happens out loud.", "Live polling that redirects your teaching instead of just scoring them."]
+  ["Teaching materials", "Everything they read, watch or handle is yours.", "A video demo, or a real object they can handle."],
+  ["Delivery mode", "How it reaches them — and whether they stay passive.", "Flip the lecture, or bring in an industry speaker."],
+  ["Learning activities", "The highest-value thing you control.", "Build a tower, dry a sample, trace a live line."],
+  ["Assessment format", "The weighting is fixed. The form is yours.", "An experiment-based test at the same 15%."],
+  ["Sequencing", "What comes first changes what they can absorb.", "Let them fail first, then teach the method."],
+  ["Feedback &amp; climate", "How safe it feels to be wrong.", "Live polling that redirects your teaching."]
 ];
 
 const CYCLE = [
@@ -499,7 +528,7 @@ const CASES = [
       ["Method", "Drawing assignment 90%, plus a hands-on demonstration worth 10%, evaluated by the lecturer against a rubric."],
       ["Assessment", "100% total: 90% drawing, 10% psychomotor hands-on."],
       ["Impact", "Eradicated the plagiarism loophole. Students agreed the combination better reflected their real skills."]
-    ], output: "1 gold medal in PICTL" },
+    ], output: "1 gold medal in PICTL &bull; 1 silver medal, Alternative Assessment Award" },
   { tab: "Experiment as test", title: "Experiment-based assessment replacing the classroom test",
     context: "Physical Separation",
     rows: [
@@ -509,7 +538,7 @@ const CASES = [
       ["Method", "Pairs over a three-hour session, drying apple samples and calculating moisture loss."],
       ["Assessment", "Experiment data collected, analysed, and engineering calculations graded."],
       ["Impact", "Over 75% strongly agreed that working in pairs let them work and learn more effectively, with better visualisation and critical thinking."]
-    ], output: "A test that teaches while it measures" },
+    ], output: "1 paper published (Q1, Education for Chemical Engineers) &bull; 1 gold medal" },
   { tab: "P&amp;ID tracing", title: "Industrial application — tracing line activities",
     context: "Computer Aided Drawing &bull; Industrial application",
     rows: [
@@ -519,14 +548,14 @@ const CASES = [
       ["Method", "A 3-in-1 PID Maze: symbol compilation as flipped pre-work, a three-hour tracing challenge, then a mystery-unravel presentation of the flow logic."],
       ["Assessment", "Drawing portfolio (cognitive), quiz, and tracing line activities (psychomotor)."],
       ["Impact", "Highly interactive, work-related knowledge replicating a real plant, with commercialisation potential for TVET training."]
-    ], output: "1 gold medal in PICTL 2020" }
+    ], output: "1 paper published (Q1, Education for Chemical Engineers) &bull; 1 gold medal in PICTL 2020" }
 ];
 
 const QUICKWINS = [
-  ["2-hour Monologue Lecture", "Microlearning &amp; Polling: break lectures into 15-minute chunks separated by a quick interactive quiz.", "Passive listening → active recall and engagement."],
-  ["Paper-based Quiz", "Experiment-Based Assessment: students dry an apple and calculate moisture loss instead of answering a test paper.", "Rote memorisation → experiential learning and application."],
-  ["Standard Written Essay", "Video Pitch: students record a 60-second explanation of a complex concept.", "Information regurgitation → synthesis and communication."],
-  ["100% Final Product Grade", "Process-Oriented Grading: assess the drafts, teamwork and physical prototype alongside the final drawing.", "Outcome-focused → process and critical thinking focused."]
+  ["2-hour monologue lecture", "15-minute chunks, each closed by a quick poll.", "Passive listening → active recall"],
+  ["Paper-based quiz", "Dry an apple, calculate the moisture loss.", "Memorisation → experiential learning"],
+  ["Written essay", "A 60-second video explaining one concept.", "Regurgitation → synthesis"],
+  ["100% final product grade", "Grade the drafts, teamwork and prototype too.", "Outcome → process"]
 ];
 
 const INNOVATION_QUIZ = [
@@ -601,19 +630,19 @@ const EVIDENCE = [
 ];
 
 const ETHICS = [
-  ["Consent", "Students must know their data may be used, and be free to decline without penalty."],
-  ["Anonymity", "No names, no matric numbers, no identifiable photographs in anything you publish."],
-  ["Ethics approval", "If you intend to publish, obtain it before you collect — not when a reviewer asks."],
-  ["No cohort disadvantaged", "A comparison group cannot be given a worse education to prove your point."]
+  ["Consent", "They must know, and be free to decline without penalty."],
+  ["Anonymity", "No names, matric numbers or identifiable photos."],
+  ["Ethics approval", "Before you collect — not when a reviewer asks."],
+  ["No cohort disadvantaged", "A comparison group cannot get a worse education."]
 ];
 
 const MOTIVATION = [
-  ["Dynamic Teaching Plan", "Be resilient and adaptable to change. Do not let unexpected disruptions derail your semester."],
-  ["Break Down Tasks", "Set realistic targets suited to your capacity — marking 10 assignments a day — to avoid procrastination."],
-  ["Combine Tasks", "Fill in grades in the system while simultaneously ticking e-attendance."],
-  ["Listen to Students", "Ask them directly. Negotiate win-win solutions and run a student assessment at the end."],
-  ["Keep Passion Fueled", "Attend education conferences, workshops and competitions, and work together with colleagues."],
-  ["Follow Current Trends", "Adapt your delivery to what students actually use — IT, media, or short-form video."]
+  ["Dynamic teaching plan", "Adaptable, so one disruption does not derail the semester."],
+  ["Break down tasks", "Mark 10 a day. Realistic targets beat heroic ones."],
+  ["Combine tasks", "Fill grades and tick e-attendance in the same sitting."],
+  ["Listen to students", "Ask directly. Negotiate win-win."],
+  ["Keep passion fueled", "Conferences, workshops, competitions, colleagues."],
+  ["Follow current trends", "Deliver in what students actually use."]
 ];
 
 /* ===========================================================================
@@ -622,6 +651,110 @@ const MOTIVATION = [
 const h = (s, ...v) => s.reduce((o, str, i) => o + str + (v[i] ?? ''), '');
 const map = (arr, fn) => arr.map(fn).join('');
 const pad = n => String(n).padStart(2, '0');
+
+/* Numbered subsection header — gives every block a scannable label. */
+const sec = (n, title, sub) => h`
+  <div class="sechead">
+    <span class="n">${n}</span>
+    <div><h3 class="h">${title}</h3>${sub ? h`<p>${sub}</p>` : ''}</div>
+  </div>`;
+
+
+/* ===========================================================================
+   DIAGRAMS — inline SVG, themed through CSS variables so they follow the
+   blue/pink switch. Each one replaces a paragraph of explanation.
+   ========================================================================= */
+const FIG = {};
+
+/* Three criteria as gates: pass all three, or it is not innovation. */
+FIG.criteria = () => h`
+<figure class="fig">
+  <svg viewBox="0 0 1010 210" role="img" aria-label="An idea must pass three gates — intentional, changes what students do, and evidenced — to count as innovation.">
+    <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--line-2)"/></marker></defs>
+    <rect x="4" y="46" width="120" height="62" rx="10" fill="var(--page)" stroke="var(--line-2)"/>
+    <text x="64" y="83" text-anchor="middle" font-size="19" font-weight="700" fill="var(--head)">An idea</text>
+    ${[["Intentional","Answers a real problem",158],["Changes what\\nstudents do","Not just the tool",386],["Evidenced","Something improved",614]]
+      .map(([t,sub,x]) => h`
+      <line x1="${x-32}" y1="77" x2="${x-8}" y2="77" stroke="var(--line-2)" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="${x}" y="34" width="196" height="86" rx="10" fill="var(--accent-50)" stroke="var(--accent-600)" stroke-width="2"/>
+      <text x="${x+98}" y="${t.includes('\\n') ? 66 : 72}" text-anchor="middle" font-size="18" font-weight="700" fill="var(--accent-700)">
+        ${t.split('\\n')[0]}</text>
+      ${t.includes('\\n') ? h`<text x="${x+98}" y="86" text-anchor="middle" font-size="18" font-weight="700" fill="var(--accent-700)">${t.split('\\n')[1]}</text>` : ''}
+      <text x="${x+98}" y="${t.includes('\\n') ? 106 : 96}" text-anchor="middle" font-size="16" fill="var(--muted)">${sub}</text>
+      <text x="${x+98}" y="150" text-anchor="middle" font-size="15" fill="#b91c1c">✕ fails → not innovation</text>`).join('')}
+    <line x1="818" y1="77" x2="842" y2="77" stroke="var(--line-2)" stroke-width="2" marker-end="url(#ar)"/>
+    <rect x="850" y="40" width="152" height="74" rx="10" fill="var(--head)"/>
+    <text x="926" y="72" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">T&amp;L innovation</text>
+    <text x="926" y="94" text-anchor="middle" font-size="15" fill="#94a3b8">all three passed</text>
+  </svg>
+  <figcaption>All three gates, in order. Miss one and it is not innovation.</figcaption>
+</figure>`;
+
+/* Design cycle as a loop, not a list. */
+FIG.cycle = () => h`
+<figure class="fig">
+  <svg viewBox="0 0 940 230" role="img" aria-label="Five steps from problem to evidence, looping back for the next cohort.">
+    <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent-600)"/></marker>
+      <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--muted)"/></marker></defs>
+    ${["Identify the\\nproblem","Diagnose\\nthe cause","Choose a\\nconstruct","Design the\\nactivity","Plan the\\nevidence"]
+      .map((t,i) => { const x = 8 + i*188; const last = i === 4; return h`
+      <rect x="${x}" y="40" width="168" height="80" rx="10"
+            fill="${last ? 'var(--accent-600)' : 'var(--card)'}" stroke="var(--accent-600)" stroke-width="2"/>
+      <circle cx="${x+22}" cy="62" r="13" fill="${last ? '#fff' : 'var(--accent-600)'}"/>
+      <text x="${x+22}" y="67" text-anchor="middle" font-size="15" font-weight="700"
+            fill="${last ? 'var(--accent-700)' : '#fff'}">${i+1}</text>
+      <text x="${x+84}" y="93" text-anchor="middle" font-size="17" font-weight="600"
+            fill="${last ? '#fff' : 'var(--head)'}">${t.split('\\n')[0]}</text>
+      <text x="${x+84}" y="111" text-anchor="middle" font-size="17" font-weight="600"
+            fill="${last ? '#fff' : 'var(--head)'}">${t.split('\\n')[1]}</text>
+      ${i < 4 ? h`<line x1="${x+172}" y1="80" x2="${x+192}" y2="80" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar2)"/>` : ''}`;
+      }).join('')}
+    <path d="M 872 124 L 872 176 L 92 176 L 92 128" fill="none" stroke="var(--muted)"
+          stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar3)"/>
+    <text x="482" y="199" text-anchor="middle" font-size="16" fill="var(--muted)">Analyse, revise, run again with the next cohort</text>
+  </svg>
+  <figcaption>Step 5 is the one everyone skips. Evidence added afterwards is not evidence.</figcaption>
+</figure>`;
+
+/* Evidence hierarchy as a ladder — width encodes strength. */
+FIG.evidence = () => h`
+<figure class="fig">
+  <svg viewBox="0 0 760 330" role="img" aria-label="Five levels of evidence, from student enjoyment at the weakest to transfer at the strongest.">
+    ${[["They enjoyed it",240,"#cbd5e1"],["They say they learned more",340,"#94a3b8"],
+       ["Task performance improved",440,"#64748b"],["CO attainment beat a prior cohort",560,"var(--accent-600)"],
+       ["It transferred elsewhere",660,"var(--accent-700)"]]
+      .map(([t,w,c],i) => { const y = 262 - i*52; return h`
+      <rect x="40" y="${y}" width="${w}" height="40" rx="6" fill="${c}"/>
+      <text x="56" y="${y+26}" font-size="17" font-weight="600" fill="${i<3?'var(--head)':'#fff'}">${i+1}. ${t}</text>`;
+      }).join('')}
+    <text x="40" y="324" font-size="16" fill="var(--muted)">Weakest — convinces nobody</text>
+    <text x="720" y="42" text-anchor="end" font-size="16" fill="var(--accent-700)" font-weight="700">Strongest — publishable</text>
+  </svg>
+  <figcaption>Most teaching reports stop at level 1. Levels 3–4 cost nothing extra if planned in advance.</figcaption>
+</figure>`;
+
+/* Vibe coding loop. */
+FIG.loop = () => h`
+<figure class="fig">
+  <svg viewBox="0 0 700 210" role="img" aria-label="Describe, play, correct — repeat until the tool is right.">
+    <defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent-600)"/></marker></defs>
+    ${[["Describe","in plain language",20],["Play","as a student would",250],["Correct","say what is wrong",480]]
+      .map(([t,sub,x]) => h`
+      <rect x="${x}" y="30" width="200" height="76" rx="10" fill="var(--accent-50)" stroke="var(--accent-600)" stroke-width="2"/>
+      <text x="${x+100}" y="64" text-anchor="middle" font-size="20" font-weight="700" fill="var(--accent-700)">${t}</text>
+      <text x="${x+100}" y="88" text-anchor="middle" font-size="16" fill="var(--muted)">${sub}</text>`).join('')}
+    <line x1="224" y1="68" x2="244" y2="68" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar4)"/>
+    <line x1="454" y1="68" x2="474" y2="68" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar4)"/>
+    <path d="M 580 110 L 580 158 L 120 158 L 120 112" fill="none" stroke="var(--accent-600)"
+          stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar4)"/>
+    <text x="350" y="182" text-anchor="middle" font-size="16" fill="var(--muted)">Repeat until it teaches what you meant</text>
+  </svg>
+  <figcaption>You never read the code. You judge the behaviour.</figcaption>
+</figure>`;
 
 /* ===========================================================================
    VIEWS
@@ -632,58 +765,21 @@ views.welcome = () => h`
   <section>
     <div class="card">
       <span class="pill pill--accent">Workshop Module</span>
-      <h2 class="h" style="font-size:32px;margin:16px 0 14px">Kursus Asas Pengajaran dan Pembelajaran (KAPP)</h2>
-      <p class="lede">Welcome to the interactive learning module for new university lecturers. This platform
-      contains the core concepts, case studies and activities for our session on innovation in teaching and learning.</p>
-      <h4 class="h" style="margin:24px 0 12px">Learning Outcomes</h4>
-      <ul class="ticks">
-        <li><strong>Understand innovation:</strong> learn what true educational innovation means beyond just using technology.</li>
-        <li><strong>Apply frameworks:</strong> use the design cycle to solve real classroom challenges.</li>
-        <li><strong>Explore case studies:</strong> review proven examples of successful teaching innovations.</li>
-      </ul>
+      <h2 class="h" style="font-size:34px;margin:16px 0 12px">Kursus Asas Pengajaran dan Pembelajaran (KAPP)</h2>
+      <p class="lede">An interactive session on innovation in teaching and learning, for new university lecturers.</p>
     </div>
   </section>
 
   <section>
-    <div class="dark">
-      <div class="speaker">
-        <img src="${PORTRAIT}" alt="Prof. Ts. Dr. Zurina Zainal Abidin">
-        <div style="flex:1;min-width:300px">
-          <h3 class="h" style="font-size:24px">Prof. Ts. Dr. Zurina Zainal Abidin</h3>
-          <div style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#a5b4fc;margin:8px 0 16px">
-            Department of Chemical and Environmental Engineering, UPM</div>
-          <p>A passionate educator and researcher dedicated to driving innovation in teaching and learning.
-          Prof. Zurina believes in the Do-Sense-Feel philosophy to stimulate greater cognitive development,
-          and empowers students through experiential learning.</p>
-          <h4 class="h" style="font-size:16px;margin:20px 0 0">Awards &amp; Recognitions</h4>
-          <div class="awards">
-            <div><b>Anugerah Akademik Negara</b><small>Finalist 2025 (Teaching, Eng. Cluster)</small></div>
-            <div><b>Vice Chancellor Fellowship Award</b><small>AFNC 2021 (Teaching Category)</small></div>
-            <div><b>Top World 2% Scientist</b><small>Elsevier BV &amp; Stanford University (2022–2023)</small></div>
-            <div><b>SEARCA Professorial Chair</b><small>Awarded for 2025–2026</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="h">Teaching in a VUCA World</h2>
-    <p class="lede">We are teaching in a world characterised by <strong>Volatility, Uncertainty, Complexity
-    and Ambiguity</strong>. Before any method or tool, you need a philosophy you can be comfortable
-    inhabiting — one that reflects who you actually are.</p>
-    <div style="margin-top:16px;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:0 8px 8px 0;padding:14px 18px">
-      <strong style="color:var(--head)">Adopt a consistent teaching philosophy where you can be yourself. Be authentic.</strong>
-    </div>
-  </section>
-
-  <section>
-    <h3 class="h">Core Teaching Philosophies</h3>
-    <p class="small" style="margin-bottom:20px">These three run underneath every case study later in this workshop.</p>
+    ${sec(1, 'Learning Outcomes', 'What you will be able to do by the end of the session.')}
     <div class="grid g3">
-      ${map(PHILOSOPHIES, ([t, d], i) => h`
+      ${map([
+        ["Understand innovation", "What it really means, beyond using technology."],
+        ["Apply the framework", "Use the design cycle on a real classroom problem."],
+        ["Explore case studies", "Five proven examples, with their evidence."]
+      ], ([t, d], i) => h`
         <div class="card topline">
-          <div class="dot" style="margin-bottom:14px">${i + 1}</div>
+          <div class="dot" style="margin-bottom:12px">${i + 1}</div>
           <h4 class="h">${t}</h4>
           <p class="small">${d}</p>
         </div>`)}
@@ -691,33 +787,34 @@ views.welcome = () => h`
   </section>
 
   <section>
+    ${sec(2, 'Your Speaker')}
     <div class="dark">
-      <h3 class="h" style="font-size:20px">Not knowing your student is like teaching without a soul</h3>
-      <p style="font-size:15px">Palmer (2003). An authentic relationship between teacher and student helps
-      students prioritise learning and succeed (Prewett et al., 2019).</p>
-      <div class="grid g2" style="gap:10px;margin-top:16px">
-        ${map(["Build rapport", "Memorise names", "Memorable moments", "Freedom of speech"],
-          t => h`<div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px;font-weight:700;text-align:center">${t}</div>`)}
+      <div class="speaker">
+        <img src="${PORTRAIT}" alt="Prof. Ts. Dr. Zurina Zainal Abidin">
+        <div style="flex:1;min-width:300px">
+          <h3 class="h" style="font-size:26px;color:#fff">Prof. Ts. Dr. Zurina Zainal Abidin</h3>
+          <div style="font-size:17.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#a5b4fc;margin:8px 0 14px">
+            Chemical and Environmental Engineering, UPM</div>
+          <p>Educator and researcher in teaching and learning innovation. Works from the
+          Do-Sense-Feel philosophy, and empowers students through experiential learning.</p>
+          <div class="awards">
+            <div><b>Anugerah Akademik Negara</b><small>Finalist 2025 (Teaching, Eng. Cluster)</small></div>
+            <div><b>Vice Chancellor Fellowship Award</b><small>AFNC 2021 (Teaching Category)</small></div>
+            <div><b>Top World 2% Scientist</b><small>Elsevier BV &amp; Stanford (2022–2023)</small></div>
+            <div><b>SEARCA Professorial Chair</b><small>2025–2026</small></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
+    ${sec(3, 'Teaching in a VUCA World')}
     <div class="card">
-      <h3 class="h">Reflect: does your philosophy show up in your classroom?</h3>
-      <div style="margin-top:18px">
-        ${map([
-          ["I know my students", "I can name most of them and I know what they struggle with."],
-          ["They can sense my presence", "They would say I am present and invested, not just delivering."],
-          ["I am being myself", "My teaching reflects who I actually am, not an imitation of someone else."]
-        ], ([t, d]) => h`
-          <label style="display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;cursor:pointer">
-            <input type="checkbox" class="reflect" style="width:20px;height:20px;margin-top:3px;accent-color:var(--accent-600)">
-            <span><strong>${t}</strong><br><span class="small">${d}</span></span>
-          </label>`)}
-      </div>
-      <div id="reflectDone" hidden style="margin-top:8px;background:var(--ok-bg);border:1px solid var(--ok-line);color:var(--ok-ink);border-radius:12px;padding:16px;font-weight:600">
-        That is the foundation. Innovation, pedagogy and assessment all sit on top of it.
+      <p class="lede">We teach in conditions that are <strong>volatile, uncertain, complex and ambiguous</strong>.
+      Before any method or tool, you need a philosophy you can comfortably inhabit.</p>
+      <div style="margin-top:18px;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:0 8px 8px 0;padding:16px 20px">
+        <strong style="color:var(--head);font-size:20px">Adopt a consistent teaching philosophy where you can be yourself. Be authentic.</strong>
       </div>
     </div>
   </section>`;
@@ -733,79 +830,74 @@ views.innovation = () => h`
   </section>
 
   <section>
-    <h3 class="h">Three tests — all three must pass</h3>
-    <p class="small" style="margin-bottom:20px">Novelty fails the third test. Technology usually fails the second.</p>
+    ${sec(1, 'Criteria of a T&amp;L Innovation', 'All three must pass.')}
+    ${FIG.criteria()}
     <div class="grid g3">
       ${map(TESTS, ([t, d, f], i) => h`
         <div class="card">
           <div class="dot" style="margin-bottom:14px">${i + 1}</div>
           <h4 class="h">${t}</h4>
           <p class="small">${d}</p>
-          <div style="background:var(--no-bg);border:1px solid var(--no-line);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--no-ink)">
+          <div style="background:var(--no-bg);border:1px solid var(--no-line);border-radius:8px;padding:10px 12px;font-size:17.5px;color:var(--no-ink)">
             <strong style="color:var(--no-ink)">Fails when:</strong> ${f}</div>
         </div>`)}
     </div>
   </section>
 
   <section>
-    <h3 class="h">Where innovation lives: four layers</h3>
-    <p class="small" style="margin-bottom:20px">Most claimed innovation sits at the bottom layer. It becomes
-    pedagogical innovation when it reaches the activity layer.</p>
-    ${map(LAYERS, ([n, s, e, on]) => h`
-      <div class="layer ${on ? 'layer--on' : ''}">
+    ${sec(2, 'Where Innovation Lives', 'It only counts as pedagogical when it reaches the activity layer.')}
+    ${map(LAYERS, ([n, s, e, on], i) => h`
+      <div class="layer ${on ? 'layer--on' : ''}" data-d="${i + 1}">
         <b>${n}<small>${s}</small></b><span>${e}</span></div>`)}
     <div style="margin-top:16px;background:var(--head);color:#fff;border-radius:12px;padding:20px">
-      <strong style="color:#fff;font-size:18px">If the students' thinking is unchanged, you innovated the tool — not the pedagogy.</strong>
+      <strong style="color:#fff;font-size:20px">If the students' thinking is unchanged, you innovated the tool — not the pedagogy.</strong>
     </div>
   </section>
 
   <section>
-    <h3 class="h">Innovation answers a problem — usually a dull one</h3>
-    <p class="small" style="margin-bottom:20px">Nobody innovates because they woke up inspired. They innovate because something broke.</p>
+    ${sec(3, 'Where It Starts', 'Nobody innovates because they woke up inspired. Something broke.')}
     <div class="grid g2" style="gap:12px">
       ${map(DRIVERS, (d, i) => h`
         <div class="card card--flat" style="display:flex;gap:14px;align-items:flex-start;padding:16px">
-          <div class="dot" style="width:26px;height:26px;font-size:13px">${i + 1}</div>
+          <div class="dot" style="width:26px;height:26px;font-size:17px">${i + 1}</div>
           <span class="small">${d}</span></div>`)}
     </div>
   </section>
 
   <section>
-    <h3 class="h">Six places innovation can happen</h3>
-    <p class="small" style="margin-bottom:20px">Most lecturers imagine only the fifth. The third is where the leverage actually is.</p>
+    ${sec(4, 'Six Places It Can Happen', 'Most lecturers imagine only the fifth. The third is where the leverage actually is.')}
     <div class="grid g3">
       ${map(TYPES, ([t, d], i) => h`
         <div class="card ${i === 2 ? 'card--tint' : ''}">
-          <h4 class="h" style="font-size:17px">${t}</h4>
+          <h4 class="h" style="font-size:19px">${t}</h4>
           <p class="small">${d}</p></div>`)}
     </div>
   </section>
 
   <section>
-    <h3 class="h">Guessing game: is it innovation?</h3>
-    <p class="small" style="margin-bottom:20px">Seven scenarios. Decide before you read the explanation.</p>
+    ${sec(5, 'Guessing Game: Is It Innovation?', 'Seven scenarios. Decide before you read the explanation.')}
     <div id="quizInnovation"></div>
   </section>`;
 
 views.pedagogy = () => h`
   <section>
     <h2 class="h">High-Impact Pedagogies</h2>
-    <p class="lede">A pedagogy is the named model underneath your activity. Naming it lets you find the
-    literature, defend the design, and eventually publish it.</p>
+    <p class="lede">The named model underneath your activity. Naming it lets you find the literature, defend the design, and publish it.</p>
     <div style="margin-top:16px;background:var(--accent-50);border-left:4px solid var(--accent-500);border-radius:0 8px 8px 0;padding:14px 18px">
       <span class="small">I ran these for years before I could name any of them. Naming them is what turned activities into papers.</span>
     </div>
   </section>
 
   <section>
+    ${sec(1, 'Seven High-Impact Pedagogies', 'Each with its principle, what it looks like in a room, and a worked example.')}
     <div class="grid g2">
       ${map(PEDAGOGIES, ([n, p, l, e], i) => h`
         <div class="card topline">
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px">
-            <h4 class="h" style="font-size:19px;margin:0">${n}</h4>
+            <h4 class="h" style="font-size:21px;margin:0">${n}</h4>
             <span class="pill" style="background:var(--accent-100);color:var(--accent-700);flex:none">${pad(i + 1)}</span>
           </div>
-          <p style="font-weight:700;color:var(--head);font-size:16px">${p}</p>
+          <p style="font-weight:700;color:var(--head);font-size:18px">${p}</p>
           <p class="small"><strong>Looks like:</strong> ${l}</p>
           <p class="small"><strong>For example:</strong> ${e}</p>
         </div>`)}
@@ -814,7 +906,7 @@ views.pedagogy = () => h`
 
   <section>
     <div style="background:var(--head);color:#fff;border-radius:16px;padding:28px">
-      <h3 class="h" style="color:#fff;font-size:20px">How to choose</h3>
+      <h3 class="h" style="color:#fff;font-size:22px">How to choose</h3>
       <p style="color:#cbd5e1;margin:0">Pick the construct first, then design the activity from it — not the reverse.
       An activity chosen first and justified afterwards is how you end up with something that looks
       innovative and teaches nothing.</p>
@@ -822,8 +914,7 @@ views.pedagogy = () => h`
   </section>
 
   <section>
-    <h3 class="h">Name that pedagogy</h3>
-    <p class="small" style="margin-bottom:20px">Seven classroom scenarios.</p>
+    ${sec(2, 'Name That Pedagogy', 'Seven classroom scenarios.')}
     <div id="quizPedagogy"></div>
   </section>`;
 
@@ -831,26 +922,23 @@ views.method = () => h`
   <section>
     <h2 class="h">Method to Craft Innovation</h2>
     <div class="dark">
-      <p style="font-size:19px;color:#fff;font-weight:600">Every course you teach has two layers. One is
-      decided for you and locked for the accreditation cycle. The other is entirely yours, every single semester.</p>
-      <p style="margin:14px 0 0">Innovation is impossible in the first layer and unavoidable in the second.
-      Knowing which is which is the whole method.</p>
+      <p style="font-size:21px;color:#fff;font-weight:600">Every course has two layers: one locked for the accreditation cycle, one entirely yours.</p>
+      <p style="margin:12px 0 0">Innovation is impossible in the first and unavoidable in the second. Knowing which is which is the method.</p>
     </div>
   </section>
 
   <section>
-    <h3 class="h">Know your two levels</h3>
-    <p class="small" style="margin-bottom:20px">Junior lecturers exhaust themselves fighting the macro column.
-    Switch between them and see exactly where your room to move is.</p>
-    <div class="switch" role="group" aria-label="Level" style="margin-bottom:22px">
-      <button data-level="macro" aria-pressed="true">MACRO — already fixed</button>
-      <button data-level="micro" aria-pressed="false">MICRO — entirely yours</button>
+    ${sec(1, 'Know Your Two Levels', 'Junior lecturers exhaust themselves fighting the macro column.')}
+    <p class="small" style="margin-bottom:12px;font-weight:600">Select a level:</p>
+    <div class="chips chips--big" role="group" aria-label="Level" style="margin-bottom:22px">
+      <button data-level="macro" aria-pressed="true">MACRO &mdash; already fixed</button>
+      <button data-level="micro" aria-pressed="false">MICRO &mdash; entirely yours</button>
     </div>
     <div id="levels"></div>
     <div class="grid g3" style="margin-top:20px">
-      <div class="card" style="text-align:center"><div style="font-size:34px;font-weight:700;color:var(--muted)">6</div>
+      <div class="card" style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--muted)">6</div>
         <div class="small" style="font-weight:600">Macro items — fixed</div></div>
-      <div class="card card--tint" style="text-align:center"><div style="font-size:34px;font-weight:700;color:var(--accent-600)">6</div>
+      <div class="card card--tint" style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--accent-600)">6</div>
         <div class="small" style="font-weight:600">Micro items — yours</div></div>
       <div style="background:var(--head);color:#fff;border-radius:16px;padding:24px;display:grid;place-items:center;text-align:center">
         <strong style="color:#fff">Start every innovation in the micro column.</strong></div>
@@ -858,8 +946,9 @@ views.method = () => h`
   </section>
 
   <section>
-    <h3 class="h">Interactive: the 5-step design cycle</h3>
-    <p class="small" style="margin-bottom:20px">Click through the steps to explore the process.</p>
+    ${sec(2, 'The 5-Step Design Cycle')}
+    ${FIG.cycle()}
+    <p class="small" style="margin-bottom:18px">Click any step for detail.</p>
     <div class="steps">
       <div class="steps__list">
         ${map(CYCLE, ([t], i) => h`<button data-step="${i}" aria-pressed="${i === 0}"><b>Step ${i + 1}</b>${t}</button>`)}
@@ -873,11 +962,11 @@ views.method = () => h`
 views.cases = () => h`
   <section>
     <h2 class="h">Assessment &amp; Case Studies</h2>
-    <p class="lede">Five innovations that ran in real courses. Every one began with a problem, and every one
-    collected its evidence the first time it ran.</p>
+    <p class="lede">Five innovations that ran in real courses — each with its evidence collected on the first run.</p>
   </section>
 
   <section>
+    ${sec(1, 'Five Proven Case Studies', 'Select a case to see the problem, method, impact and outputs.')}
     <div class="chips" role="group" aria-label="Case studies">
       ${map(CASES, (c, i) => h`<button data-case="${i}" aria-pressed="${i === 0}">${i + 1}. ${c.tab}</button>`)}
     </div>
@@ -885,8 +974,7 @@ views.cases = () => h`
   </section>
 
   <section>
-    <h3 class="h">Quick wins: traditional versus innovative</h3>
-    <p class="small" style="margin-bottom:20px">Small swaps that change what students actually do.</p>
+    ${sec(2, 'Quick Wins: Traditional vs Innovative', 'Small swaps that change what students actually do.')}
     ${map(QUICKWINS, ([a, b, c]) => h`
       <div class="row">
         <div class="row__k" style="color:var(--muted);font-weight:600">${a}</div>
@@ -900,11 +988,11 @@ views.cases = () => h`
 views.activities = () => h`
   <section>
     <h2 class="h">Session Activities</h2>
-    <p class="lede">Two things you will build in this room today. Both rest on the same idea: AI has collapsed
-    the cost of <em>making</em> teaching material, so the scarce skill is now deciding what is worth making.</p>
+    <p class="lede">AI has collapsed the cost of <em>making</em> teaching material. The scarce skill is deciding what is worth making.</p>
   </section>
 
   <section>
+    ${sec(1, 'Choose an Activity', 'Two things you will build in this room today. Select one:')}
     <div class="grid g2">
       <button class="card actPick" data-act="tiktok" aria-pressed="true" style="text-align:left;cursor:pointer">
         <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
@@ -931,21 +1019,18 @@ views.sotl = () => h`
   <section>
     <h2 class="h">Research Integration &amp; SoTL</h2>
     <div class="card">
-      <p><strong>SoTL</strong> is the Scholarship of Teaching and Learning — a shift where teaching is treated
-      not as a task but as a scholarly endeavour. You investigate your own classroom systematically, gather
-      evidence of student learning, and share the findings publicly.</p>
-      <ul class="ticks" style="margin-top:18px">
-        <li><strong>Systematic inquiry:</strong> treating teaching problems like research questions.</li>
-        <li><strong>Evidence-based:</strong> collecting robust data to evaluate the impact of an innovation.</li>
-        <li><strong>Public sharing:</strong> publishing in conferences such as PICTL, or in journals.</li>
+      <p>Teaching treated as a scholarly endeavour: investigate your own classroom, gather evidence, share it.</p>
+      <ul class="ticks" style="margin-top:14px">
+        <li><strong>Systematic inquiry</strong> — teaching problems as research questions.</li>
+        <li><strong>Evidence-based</strong> — data that shows the impact.</li>
+        <li><strong>Public sharing</strong> — PICTL, conferences, journals.</li>
       </ul>
     </div>
   </section>
 
   <section>
-    <h3 class="h">Evidence hierarchy</h3>
-    <p class="small" style="margin-bottom:20px">Weakest to strongest. Most teaching reports stop at level one,
-    and level one convinces nobody.</p>
+    ${sec(2, 'Evidence Hierarchy')}
+    ${FIG.evidence()}
     ${map(EVIDENCE, ([t, d], i) => h`
       <div class="row" ${i >= 3 ? 'style="background:var(--accent-50);border-color:var(--accent-100)"' : ''}>
         <div style="flex:none"><span class="dot ${i >= 3 ? 'dot--solid' : ''}">${i + 1}</span></div>
@@ -959,20 +1044,20 @@ views.sotl = () => h`
   </section>
 
   <section>
-    <h3 class="h">Ethics first</h3>
+    ${sec(3, 'Ethics First')}
     <div class="grid g2">
-      ${map(ETHICS, ([t, d]) => h`<div class="card"><h4 class="h" style="font-size:17px">${t}</h4><p class="small">${d}</p></div>`)}
+      ${map(ETHICS, ([t, d]) => h`<div class="card"><h4 class="h" style="font-size:19px">${t}</h4><p class="small">${d}</p></div>`)}
     </div>
   </section>
 
   <section>
     <div class="dark">
-      <h3 class="h" style="font-size:20px">One activity, many outputs</h3>
+      <h3 class="h" style="font-size:22px">One activity, many outputs</h3>
       <p>None of these were planned in advance. All of them were possible only because the data was collected
       the first time the activity ran.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
         ${map(["Teaching grant", "Conference paper", "Copyright", "Competition medal", "Award portfolio", "Book chapter"],
-          o => h`<span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);padding:8px 14px;border-radius:8px;font-weight:600;font-size:15px">${o}</span>`)}
+          o => h`<span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);padding:8px 14px;border-radius:8px;font-weight:600;font-size:17px">${o}</span>`)}
       </div>
     </div>
   </section>
@@ -982,11 +1067,11 @@ views.sotl = () => h`
 views.challenge = () => h`
   <section>
     <h2 class="h">The Challenge</h2>
-    <p class="lede">Pick one problem in your syllabus today and draft the plan. Not a curriculum overhaul —
-    one thing, written down now, while you still believe it is possible.</p>
+    <p class="lede">One problem from your syllabus. Not a curriculum overhaul.</p>
   </section>
 
   <section>
+    ${sec(1, 'Draft Your Plan', 'Four boxes. Fill them in now, while you still believe it is possible.')}
     <div class="card">
       <label class="f"><span>1. Identify the problem</span>
         <textarea id="fProblem" rows="3" placeholder="What is actually going wrong in your course?"></textarea></label>
@@ -1005,17 +1090,18 @@ views.challenge = () => h`
 
   <section>
     <div style="background:var(--accent-50);border:1px solid var(--accent-100);border-radius:16px;padding:24px">
-      <strong style="font-size:19px">Start small: one topic, one cohort, one low-stakes week. Not a full course redesign.</strong>
+      <strong style="font-size:21px">Start small: one topic, one cohort, one low-stakes week. Not a full course redesign.</strong>
     </div>
   </section>`;
 
 views.summary = () => h`
   <section>
     <h2 class="h">Summary &amp; Key Takeaways</h2>
-    <p class="lede">Empowering sustainability within you — to survive fourteen weeks, and the semesters after them.</p>
+    <p class="lede">Sustaining yourself through fourteen weeks — and the semesters after.</p>
   </section>
 
   <section>
+    ${sec(1, 'Key Takeaways')}
     <div class="grid g2">
       ${map([
         ["Lecturers Are Thinkers", "Apply creativity and innovation to design purposeful, impactful materials."],
@@ -1027,10 +1113,10 @@ views.summary = () => h`
   </section>
 
   <section>
-    <h3 class="h">Moving Forward: Sustaining Motivation</h3>
+    ${sec(2, 'Moving Forward: Sustaining Motivation')}
     <div class="grid g3">
       ${map(MOTIVATION, ([t, d]) => h`
-        <div class="card"><h4 class="h" style="font-size:17px">${t}</h4><p class="small">${d}</p></div>`)}
+        <div class="card"><h4 class="h" style="font-size:19px">${t}</h4><p class="small">${d}</p></div>`)}
     </div>
   </section>
 
@@ -1050,10 +1136,10 @@ function panelTiktok() {
   return h`
     <div class="dark" style="margin-bottom:24px">
       <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-        <span style="font-size:36px;font-weight:700;opacity:.45">01</span>
+        <span style="font-size:38px;font-weight:700;opacity:.45">01</span>
         <span class="pill" style="background:rgba(255,255,255,.18)">24 MINUTES</span>
       </div>
-      <h3 class="h" style="font-size:24px;color:#fff">The TikTok Challenge</h3>
+      <h3 class="h" style="font-size:26px;color:#fff">The TikTok Challenge</h3>
       <p style="margin:6px 0 0">Sixty seconds on the innovation you just designed</p>
     </div>
     <div class="grid g2" style="align-items:start">
@@ -1098,9 +1184,9 @@ function panelTiktok() {
                "Is the change pedagogical — does what students DO change?",
                "Is there a hook in the first three seconds?",
                "Would a colleague steal this idea?"],
-          j => h`<div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px;font-size:15px">${j}</div>`)}
+          j => h`<div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px;font-size:17px">${j}</div>`)}
       </div>
-      <p style="color:#94a3b8;font-size:14px;margin-top:16px;font-style:italic">
+      <p style="color:#94a3b8;font-size:17.5px;margin-top:16px;font-style:italic">
         Nobody has ever failed this for bad lighting. People fail it for describing a tool instead of a change.</p>
     </div>`;
 }
@@ -1109,10 +1195,10 @@ function panelVibe() {
   return h`
     <div class="dark" style="margin-bottom:24px">
       <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-        <span style="font-size:36px;font-weight:700;opacity:.45">02</span>
+        <span style="font-size:38px;font-weight:700;opacity:.45">02</span>
         <span class="pill" style="background:rgba(255,255,255,.18)">25 MINUTES</span>
       </div>
-      <h3 class="h" style="font-size:24px;color:#fff">The Vibe Coding Challenge</h3>
+      <h3 class="h" style="font-size:26px;color:#fff">The Vibe Coding Challenge</h3>
       <p style="margin:6px 0 0">Build a small game that teaches one concept from your course</p>
     </div>
 
@@ -1124,6 +1210,7 @@ function panelVibe() {
     </div>
 
     <h4 class="h" style="margin-bottom:14px">The loop</h4>
+    ${FIG.loop()}
     <div class="grid g3">
       ${map([
         ["Describe", "In plain English or Malay. Who plays, what they do, what they should notice."],
@@ -1131,10 +1218,9 @@ function panelVibe() {
         ["Correct", "Say what is wrong in words — “the score should drop when the valve is wrong” — and it rebuilds."]
       ], ([t, d], i) => h`
         <div class="card"><div class="dot dot--solid" style="margin-bottom:12px">${i + 1}</div>
-          <h4 class="h" style="font-size:17px">${t}</h4><p class="small">${d}</p></div>`)}
+          <h4 class="h" style="font-size:19px">${t}</h4><p class="small">${d}</p></div>`)}
     </div>
-    <p class="small" style="margin-top:14px;font-style:italic">You never read the code. You judge the behaviour —
-    a skill you already have as an engineer.</p>
+
 
     <h4 class="h" style="margin:32px 0 8px">The prompt skeleton</h4>
     <p class="small" style="margin-bottom:16px">Fill these five fields on paper first. Vague in, vague out.</p>
@@ -1149,17 +1235,27 @@ function panelVibe() {
         <div class="row__k" style="display:flex;gap:12px;align-items:center"><span class="dot">${i + 1}</span>${f}</div>
         <div class="row__v" style="font-style:italic;color:var(--muted)">${e}</div></div>`)}
 
-    <h4 class="h" style="margin:32px 0 8px">Game ideas to steal</h4>
-    <p class="small" style="margin-bottom:16px">Pick one, or bring the concept your students always get wrong.</p>
+    <h4 class="h" style="margin:32px 0 8px">Three simple science games</h4>
+    <p class="small" style="margin-bottom:16px">Start with one of these, or swap in the concept your students always get wrong.</p>
     <div class="grid g3">
       ${map([
-        ["P&amp;ID Symbol Match", "Timed matching game pairing instrumentation symbols to their real equipment photo."],
-        ["Drying Curve Sliders", "Adjust temperature and air velocity to hit a target drying time; the curve redraws live."],
-        ["Mass Balance Puzzle", "Drag stream values into a flowsheet until the balance closes; wrong answers show the error."],
-        ["Unit Conversion Sprint", "Sixty seconds, as many correct engineering unit conversions as possible."],
-        ["Separation Sorter", "Match a mixture to the correct separation method and justify it in one line."],
-        ["Safety Hazard Spotter", "Find the hazards in a plant scene before the timer runs out."]
-      ], ([t, d]) => h`<div class="card topline"><h4 class="h" style="font-size:17px">${t}</h4><p class="small">${d}</p></div>`)}
+        ["Float or Sink",
+         "The player predicts whether each object floats, then drops it in and sees.",
+         "Teaches: density is mass over volume — not size, and not weight alone."],
+        ["States of Matter",
+         "A temperature slider heats and cools a substance while the particles rearrange on screen.",
+         "Teaches: energy changes arrangement and motion, not the particles themselves."],
+        ["Balance the Equation",
+         "Drag coefficients onto a chemical equation until the atom counts match on both sides.",
+         "Teaches: matter is conserved — atoms are rearranged, never created or destroyed."]
+      ], ([t, d, l], i) => h`
+        <div class="card topline">
+          <div class="dot" style="margin-bottom:12px">${i + 1}</div>
+          <h4 class="h" style="font-size:19px">${t}</h4>
+          <p class="small">${d}</p>
+          <div style="background:var(--page);border-radius:8px;padding:10px 12px;font-size:16px">
+            <strong>${l.split(':')[0]}:</strong>${l.split(':').slice(1).join(':')}</div>
+        </div>`)}
     </div>
 
     <div class="grid g2" style="margin-top:32px;align-items:start">
@@ -1188,8 +1284,8 @@ function panelVibe() {
         ["No student data goes in", "No names, no matric numbers, no marks, no submitted work. Not to draft a rubric, not “just this once”."]
       ], ([t, d], i) => h`
         <div class="card" style="background:var(--warn-bg);border-color:var(--warn-line)">
-          <div style="font-size:28px;font-weight:700;color:var(--warn-ink)">${pad(i + 1)}</div>
-          <h4 class="h" style="font-size:17px;margin-top:8px">${t}</h4>
+          <div style="font-size:30px;font-weight:700;color:var(--warn-ink)">${pad(i + 1)}</div>
+          <h4 class="h" style="font-size:19px;margin-top:8px">${t}</h4>
           <p class="small">${d}</p></div>`)}
     </div>`;
 }
@@ -1210,7 +1306,7 @@ function mountQuiz(node, items, badge) {
       node.innerHTML = h`
         <div class="quiz fade"><div class="result">
           <div class="ring">${pct}%</div>
-          <h3 class="h" style="font-size:20px">${score} out of ${items.length} correct</h3>
+          <h3 class="h" style="font-size:22px">${score} out of ${items.length} correct</h3>
           <p class="small" style="max-width:46ch;margin:10px auto 22px">${verdict}</p>
           <button class="btn btn--ghost" data-retry>Try again</button>
         </div></div>`;
@@ -1261,7 +1357,7 @@ function mountQuiz(node, items, badge) {
       foot.innerHTML = h`
         <div class="verdict ${right ? 'verdict--ok' : 'verdict--no'}">
           <b>${right ? '✓ Correct' : 'Not quite.'}</b>
-          <span style="font-size:16px">${q.e}</span>
+          <span style="font-size:18px">${q.e}</span>
           ${multi ? h`<div><button class="btn btn--dark" style="margin-top:16px" data-next>${last ? 'See my score' : 'Next question'}</button></div>` : ''}
         </div>`;
       const next = foot.querySelector('[data-next]');
@@ -1312,12 +1408,6 @@ function show(id) {
 
 /* Behaviour for each view, bound after render. */
 function wire(id) {
-  if (id === 'welcome') {
-    const boxes = Array.from(viewEl.querySelectorAll('.reflect'));
-    const done = viewEl.querySelector('#reflectDone');
-    boxes.forEach(b => b.onchange = () => { done.hidden = !boxes.every(x => x.checked); });
-  }
-
   if (id === 'innovation') mountQuiz(viewEl.querySelector('#quizInnovation'), INNOVATION_QUIZ, 'Guessing game');
   if (id === 'pedagogy')   mountQuiz(viewEl.querySelector('#quizPedagogy'), PEDAGOGY_QUIZ, 'Name that pedagogy');
   if (id === 'method')     mountQuiz(viewEl.querySelector('#quizMethod'), [SINGLE.method], 'Quick quiz');
@@ -1335,8 +1425,8 @@ function wire(id) {
               <span class="small"> You cannot change the item — but every row still leaves you something.
               That last line is where the work is.</span></div>
             ${map(MACRO, ([item, owner, why, lev]) => h`
-              <div class="row"><div class="row__k">${item}<small>${owner}</small></div>
-                <div class="row__v">${why}<div class="hint">→ ${lev}</div></div></div>`)}`
+              <div class="row"><div class="row__k">${item}${owner ? h`<small>${owner}</small>` : ''}</div>
+                <div class="row__v">${why}${lev ? h`<div class="hint">→ ${lev}</div>` : ''}</div></div>`)}`
         : h`<div class="card card--tint card--flat" style="margin-bottom:14px">
               <strong>Nobody has to approve these.</strong>
               <span class="small"> Every case study in this workshop lives entirely in this column —
@@ -1345,9 +1435,9 @@ function wire(id) {
             ${map(MICRO, ([item, why, eg], i) => h`
               <div class="card" style="border-left:4px solid var(--accent-500)">
                 <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-                  <span class="dot">${i + 1}</span><h4 class="h" style="font-size:17px;margin:0">${item}</h4></div>
+                  <span class="dot">${i + 1}</span><h4 class="h" style="font-size:19px;margin:0">${item}</h4></div>
                 <p class="small">${why}</p>
-                <div style="background:var(--page);border-radius:8px;padding:10px 12px;font-size:14px">
+                <div style="background:var(--page);border-radius:8px;padding:10px 12px;font-size:17.5px">
                   <strong>For example:</strong> ${eg}</div></div>`)}
             </div>`;
     };
@@ -1360,8 +1450,8 @@ function wire(id) {
     const panel = viewEl.querySelector('#cyclePanel');
     const drawStep = n => {
       panel.className = 'card fade';
-      panel.innerHTML = h`<div class="dot dot--solid" style="width:46px;height:46px;font-size:20px;margin-bottom:16px">${n + 1}</div>
-        <h3 class="h" style="font-size:24px">${CYCLE[n][0]}</h3>
+      panel.innerHTML = h`<div class="dot dot--solid" style="width:46px;height:46px;font-size:22px;margin-bottom:16px">${n + 1}</div>
+        <h3 class="h" style="font-size:26px">${CYCLE[n][0]}</h3>
         <p class="lede" style="margin:0">${CYCLE[n][1]}</p>`;
     };
     drawStep(0);
@@ -1382,10 +1472,10 @@ function wire(id) {
           <h3 class="h" style="margin-bottom:20px">${c.title}</h3>
           ${map(c.rows, ([k, v]) => h`
             <div class="row" style="box-shadow:none;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:14px 0;margin:0">
-              <div class="row__k" style="min-width:150px;color:var(--accent-700);font-size:14px;letter-spacing:.06em;text-transform:uppercase">${k}</div>
+              <div class="row__k" style="min-width:150px;color:var(--accent-700);font-size:17.5px;letter-spacing:.06em;text-transform:uppercase">${k}</div>
               <div class="row__v">${v}</div></div>`)}
           <div style="margin-top:20px;background:var(--head);color:#fff;border-radius:12px;padding:18px">
-            <span style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8">Outputs</span>
+            <span style="font-size:17px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8">Outputs</span>
             <div style="font-weight:700;margin-top:6px">${c.output}</div></div>
         </div>`;
     };
