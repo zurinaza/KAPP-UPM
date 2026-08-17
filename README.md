@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" data-theme="blue">
 <head>
 <meta charset="utf-8">
@@ -472,6 +473,41 @@ const PEDAGOGIES = [
   ["Assessment-as-Learning", "The assessment produces learning while it measures it.", "A test students would still benefit from even if it were ungraded.", "An experiment-based continuous assessment replacing the paper test."]
 ];
 
+const SCL = [
+  ["Why move toward SCL?", "Learning improves when students must <em>do</em> something with knowledge — not merely encounter it."],
+  ["SCL is not students teaching themselves", "The lecturer still leads, but leads the learning process differently. It is intentional design for active learner responsibility."],
+  ["The reflection prompt", "Where in your course can students make one more meaningful decision?"]
+];
+
+const ACTIVE_VERBS = ["Question", "Discuss", "Predict", "Solve", "Create", "Compare", "Explain", "Reflect"];
+
+const ACTIVE_CHECK = [
+  ["Learning outcome", "What should students be able to do?"],
+  ["Thinking", "What cognitive work will they perform?"],
+  ["Evidence", "What will show that learning happened?"],
+  ["Feedback", "How will they improve while learning is still live?"]
+];
+
+const ACTIVE_SCALE = [
+  ["Think–pair–share", "2–5 min"],
+  ["Minute paper", "3 min"],
+  ["Concept question", "5–10 min"],
+  ["Case / problem", "15–45 min"],
+  ["Experiment", "1–3 hours"],
+  ["Project / PBL", "days–weeks"]
+];
+
+const PED_CHOOSER = [
+  ["Problem-based", "Open-ended problem", "Reasoning + integration", "Facilitator"],
+  ["Project-based", "Create a meaningful product", "Sustained application", "Coach"],
+  ["Collaborative", "Shared task + interdependence", "Team learning", "Designer"],
+  ["Inquiry-based", "Question + evidence", "Investigation + judgement", "Guide"]
+];
+
+const PED_FAMILY = ["Active learning", "Experiential learning", "Constructivism", "Problem-based learning",
+  "Project-based learning", "Collaborative learning", "Inquiry-based learning",
+  "Learning-oriented assessment", "Microlearning", "Flipped classroom"];
+
 const MACRO = [
   ["Curriculum &amp; course syllabus", "Faculty / Senate", "Locked for the accreditation cycle.", "Depth, sequence and framing are still yours."],
   ["CO–PO mapping", "Programme committee", "Outcomes formally mapped to taxonomy levels.", "How you evidence attainment is not fixed."],
@@ -490,65 +526,70 @@ const MICRO = [
   ["Feedback &amp; climate", "How safe it feels to be wrong.", "Live polling that redirects your teaching."]
 ];
 
-const CYCLE = [
-  ["Identify the Problem", "What is actually going wrong in your course?"],
-  ["Diagnose the Cause", "Why is it happening — beyond the symptom?"],
-  ["Choose a Pedagogical Construct", "Name the model: flipped classroom, PBL, experiential learning."],
-  ["Design the Activity", "What will the students actually do?"],
-  ["Build the Evidence Plan", "Decide what data you collect BEFORE you run it."]
+const SIXP = [
+  ["Problem",  "What is not working?", "The learning issue that needs attention — named plainly."],
+  ["Purpose",  "What should improve?", "The change in learning you are aiming for."],
+  ["Pedagogy", "How will learning happen?", "The deliberate learning logic you are drawing on."],
+  ["Practice", "What will students experience?", "The activity, assessment or material they actually meet."],
+  ["Proof",    "What evidence shows learning?", "Rubrics, marks, questionnaires, reflections."],
+  ["Impact",   "What changed, and why does it matter?", "For students, the course, and beyond it."]
 ];
 
 const CASES = [
+  { tab: "Comprehensive CAD assessment", title: "Comprehensive CAD assessment",
+    context: "Computer Aided Drawing &bull; Tackling plagiarism",
+    rows: [
+      ["Problem", "Drawing-only assessment could not reliably detect plagiarism or demonstrate students&rsquo; actual CAD skills."],
+      ["Purpose", "Develop a fairer and more authentic assessment of students&rsquo; real drawing competency."],
+      ["Pedagogy", "Comprehensive assessment integrating cognitive and psychomotor learning."],
+      ["Practice", "Draw &rarr; Demonstrate &rarr; Perform &rarr; Be assessed."],
+      ["Proof", "Drawing assignment, hands-on demonstration, rubric scores and student feedback."],
+      ["Impact", "Reduced plagiarism loopholes and a more accurate reflection of students&rsquo; actual CAD skills."]
+    ], output: "1 gold medal in PICTL &bull; 1 silver medal, Alternative Assessment Award" },
+
+  { tab: "Industrial P&amp;ID tracing", title: "Industrial P&amp;ID tracing line",
+    context: "Computer Aided Drawing &bull; Industrial applications",
+    rows: [
+      ["Problem", "Students find P&amp;ID complex and struggle to connect diagrams with the actual process plant."],
+      ["Purpose", "Develop students&rsquo; ability to read and interpret P&amp;ID in real industrial settings."],
+      ["Pedagogy", "Student-centred, collaborative and experiential learning with industrial context."],
+      ["Practice", "Read &rarr; Trace &rarr; Identify &rarr; Match &rarr; Explain."],
+      ["Proof", "Tracing-line activity, P&amp;ID symbol assessment, drawing work and student feedback."],
+      ["Impact", "Improved P&amp;ID understanding and stronger readiness for real industrial application."]
+    ], output: "1 gold medal in PICTL 2020 &bull; 1 paper published (Q1, Education for Chemical Engineers)" },
+
+  { tab: "Power Tower", title: "Teamwork and real-life application",
+    context: "Computer Aided Drawing",
+    rows: [
+      ["Problem", "Drawing assignments feel routine and disconnected from real engineering."],
+      ["Purpose", "Make drawing more meaningful through real-life application and teamwork."],
+      ["Pedagogy", "Experiential, STEM-based and collaborative learning."],
+      ["Practice", "Plan &rarr; Draw &rarr; Build &rarr; Test &rarr; Reflect."],
+      ["Proof", "Prototype performance, teamwork, reflection and student feedback."],
+      ["Impact", "More engaged students with stronger practical and collaborative skills."]
+    ], output: "1 bronze medal in PICTL" },
+
+  { tab: "Apple Drying PBL", title: "Apple Drying PBL",
+    context: "Physical Separation &bull; Replacing the classroom paper test",
+    rows: [
+      ["Problem", "Traditional paper-based tests assess mainly cognitive knowledge and offer limited meaningful learning experience."],
+      ["Purpose", "Transform assessment into an active, meaningful learning experience."],
+      ["Pedagogy", "Experiential and collaborative learning through authentic assessment."],
+      ["Practice", "Experiment &rarr; Collect data &rarr; Analyse &rarr; Calculate &rarr; Interpret."],
+      ["Proof", "Experimental data, engineering calculations, test performance and student feedback."],
+      ["Impact", "More authentic assessment, with stronger practical understanding, engagement and application of theory."]
+    ], output: "1 gold medal in PICTL &bull; 1 paper published (Q1, Education for Chemical Engineers)" },
+
   { tab: "Video demos", title: "Biochemical Engineering laboratory aided by video demo",
     context: "Biochemical Engineering, 2015 &bull; Funded by GIPP UPM",
     rows: [
-      ["Problem", "A shortage of funding to hire lab demonstrators disrupted the smooth running of the laboratory — several rigs run at once and all need supervision."],
-      ["Objective", "Reduce dependency on demonstrators and technicians, and maintain the sustainability of the lab courses."],
-      ["Innovation", "Produce laboratory video demos of the procedures to assist student learning."],
-      ["Method", "Students conducted experiments with and without the assistance of video demonstrations."],
-      ["Assessment", "Lab reports and student total assignment marks."],
-      ["Impact", "Over 80% agreed the videos enhanced understanding (cognitive), helped them visualise the steps (psychomotor), and improved motivation (affective)."]
-    ], output: "GIPP grant &bull; 2 copyrights &bull; 1 conference paper &bull; 1 silver medal" },
-  { tab: "Power Tower", title: "Teamwork and real-life application in CAD",
-    context: "Computer Aided Drawing",
-    rows: [
-      ["Problem", "Assignments were purely drawings. The routine creates boredom and has little relation to real-life application."],
-      ["Objective", "Enhance the learning experience through experiential, collaborative STEM activity tied to real applications."],
-      ["Innovation", "STEM-based hands-on activity added, giving a genuine basis for teamwork assessment."],
-      ["Method", "Groups of four, three-hour session, building a free-standing Power Tower from a golf ball, 15 pipe cleaners and 3 straws."],
-      ["Assessment", "Prototype, teamwork and reflection analysis, graded against specified Programme Outcomes."],
-      ["Impact", "100% found it fun, 98% improved critical thinking, 96% analytical skills, 98% teamwork."]
-    ], output: "1 bronze medal in PICTL" },
-  { tab: "Comprehensive assessment", title: "Comprehensive CAD assessment",
-    context: "Computer Aided Drawing &bull; Tackling plagiarism",
-    rows: [
-      ["Problem", "Similarities in submitted drawings raised plagiarism concerns, and grading the drawing alone could not verify actual hands-on competency."],
-      ["Objective", "Tackle plagiarism and introduce a standard that evaluates competency, not just the artefact."],
-      ["Innovation", "A comprehensive assessment combining cognitive (drawing) and psychomotor (live demonstration) components."],
-      ["Method", "Drawing assignment 90%, plus a hands-on demonstration worth 10%, evaluated by the lecturer against a rubric."],
-      ["Assessment", "100% total: 90% drawing, 10% psychomotor hands-on."],
-      ["Impact", "Eradicated the plagiarism loophole. Students agreed the combination better reflected their real skills."]
-    ], output: "1 gold medal in PICTL &bull; 1 silver medal, Alternative Assessment Award" },
-  { tab: "Experiment as test", title: "Experiment-based assessment replacing the classroom test",
-    context: "Physical Separation",
-    rows: [
-      ["Problem", "Typical assessment was classroom-based, paper-based, individual and cognitive — providing no meaningful learning experience."],
-      ["Objective", "Enhance the learning experience through assessment itself, using an experiential and collaborative approach."],
-      ["Innovation", "The test became the experiment."],
-      ["Method", "Pairs over a three-hour session, drying apple samples and calculating moisture loss."],
-      ["Assessment", "Experiment data collected, analysed, and engineering calculations graded."],
-      ["Impact", "Over 75% strongly agreed that working in pairs let them work and learn more effectively, with better visualisation and critical thinking."]
-    ], output: "1 paper published (Q1, Education for Chemical Engineers) &bull; 1 gold medal" },
-  { tab: "P&amp;ID tracing", title: "Industrial application — tracing line activities",
-    context: "Computer Aided Drawing &bull; Industrial application",
-    rows: [
-      ["Problem", "P&amp;ID diagrams are widely used in industry, complicated to read, and must be related back to the actual plant."],
-      ["Objective", "Expose students to reading a P&amp;ID against a real plant, as it is used in industry."],
-      ["Innovation", "Challenge-based tracing line activities using actual Boiler Drum Control Equipment."],
-      ["Method", "A 3-in-1 PID Maze: symbol compilation as flipped pre-work, a three-hour tracing challenge, then a mystery-unravel presentation of the flow logic."],
-      ["Assessment", "Drawing portfolio (cognitive), quiz, and tracing line activities (psychomotor)."],
-      ["Impact", "Highly interactive, work-related knowledge replicating a real plant, with commercialisation potential for TVET training."]
-    ], output: "1 paper published (Q1, Education for Chemical Engineers) &bull; 1 gold medal in PICTL 2020" }
+      ["Problem", "A shortage of funding to hire lab demonstrators disrupted the smooth running of the laboratory."],
+      ["Purpose", "Reduce dependency on demonstrators and technicians, and maintain the sustainability of the lab courses."],
+      ["Pedagogy", "Multisensory, self-paced learning with procedural scaffolding."],
+      ["Practice", "Watch &rarr; Prepare &rarr; Perform &rarr; Repeat as needed."],
+      ["Proof", "Lab reports, total assignment marks and a designed questionnaire."],
+      ["Impact", "Over 80% agreed the videos enhanced understanding (cognitive), helped them visualise the steps (psychomotor) and improved motivation (affective)."]
+    ], output: "GIPP grant &bull; 2 copyrights &bull; 1 conference paper &bull; 1 silver medal" }
 ];
 
 const QUICKWINS = [
@@ -691,32 +732,57 @@ FIG.criteria = () => h`
   <figcaption>All three gates, in order. Miss one and it is not innovation.</figcaption>
 </figure>`;
 
-/* Design cycle as a loop, not a list. */
-FIG.cycle = () => h`
+/* 6P model — the story from problem to impact, with an iteration loop. */
+FIG.sixp = () => h`
 <figure class="fig">
-  <svg viewBox="0 0 940 230" role="img" aria-label="Five steps from problem to evidence, looping back for the next cohort.">
+  <svg viewBox="0 0 1120 250" role="img" aria-label="Six stages: Problem, Purpose, Pedagogy, Practice, Proof, Impact — with an iteration loop back to Pedagogy.">
     <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent-600)"/></marker>
       <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M0,0 L9,4.5 L0,9 z" fill="var(--muted)"/></marker></defs>
-    ${["Identify the\\nproblem","Diagnose\\nthe cause","Choose a\\nconstruct","Design the\\nactivity","Plan the\\nevidence"]
-      .map((t,i) => { const x = 8 + i*188; const last = i === 4; return h`
-      <rect x="${x}" y="40" width="168" height="80" rx="10"
+    ${["Problem|What is not working?","Purpose|What should improve?","Pedagogy|How will they learn?",
+       "Practice|What will they experience?","Proof|What evidence?","Impact|What changed?"]
+      .map((t,i) => { const x = 6 + i*186; const last = i === 5; const [a,bb] = t.split('|'); return h`
+      <rect x="${x}" y="44" width="166" height="86" rx="10"
             fill="${last ? 'var(--accent-600)' : 'var(--card)'}" stroke="var(--accent-600)" stroke-width="2"/>
-      <circle cx="${x+22}" cy="62" r="13" fill="${last ? '#fff' : 'var(--accent-600)'}"/>
-      <text x="${x+22}" y="67" text-anchor="middle" font-size="15" font-weight="700"
+      <circle cx="${x+24}" cy="68" r="14" fill="${last ? '#fff' : 'var(--accent-600)'}"/>
+      <text x="${x+24}" y="74" text-anchor="middle" font-size="15" font-weight="700"
             fill="${last ? 'var(--accent-700)' : '#fff'}">${i+1}</text>
-      <text x="${x+84}" y="93" text-anchor="middle" font-size="17" font-weight="600"
-            fill="${last ? '#fff' : 'var(--head)'}">${t.split('\\n')[0]}</text>
-      <text x="${x+84}" y="111" text-anchor="middle" font-size="17" font-weight="600"
-            fill="${last ? '#fff' : 'var(--head)'}">${t.split('\\n')[1]}</text>
-      ${i < 4 ? h`<line x1="${x+172}" y1="80" x2="${x+192}" y2="80" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar2)"/>` : ''}`;
+      <text x="${x+83}" y="102" text-anchor="middle" font-size="18" font-weight="700"
+            fill="${last ? '#fff' : 'var(--head)'}">${a}</text>
+      <text x="${x+83}" y="122" text-anchor="middle" font-size="14"
+            fill="${last ? '#dbeafe' : 'var(--muted)'}">${bb}</text>
+      ${i < 5 ? h`<line x1="${x+170}" y1="87" x2="${x+188}" y2="87" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar2)"/>` : ''}`;
       }).join('')}
-    <path d="M 872 124 L 872 176 L 92 176 L 92 128" fill="none" stroke="var(--muted)"
+    <path d="M 1055 134 L 1055 190 L 465 190 L 465 138" fill="none" stroke="var(--muted)"
           stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar3)"/>
-    <text x="482" y="199" text-anchor="middle" font-size="16" fill="var(--muted)">Analyse, revise, run again with the next cohort</text>
+    <text x="760" y="214" text-anchor="middle" font-size="15" fill="var(--muted)">Evidence may send you back to redesign the pedagogy, practice or assessment</text>
   </svg>
-  <figcaption>Step 5 is the one everyone skips. Evidence added afterwards is not evidence.</figcaption>
+  <figcaption>Innovation is not the activity. It is the 6P logic connecting a learning problem to demonstrable impact.</figcaption>
+</figure>`;
+
+/* SoTL: how a classroom activity becomes scholarship. */
+FIG.sotl = () => h`
+<figure class="fig">
+  <svg viewBox="0 0 1080 290" role="img" aria-label="A classroom innovation becomes scholarship when it is designed, evidenced, reflected on and shared — producing grants, papers, medals and awards.">
+    <defs><marker id="ar5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="var(--accent-600)"/></marker></defs>
+    <rect x="8" y="60" width="176" height="80" rx="10" fill="var(--page)" stroke="var(--line-2)" stroke-width="2"/>
+    <text x="96" y="95" text-anchor="middle" font-size="17" font-weight="700" fill="var(--head)">Classroom</text>
+    <text x="96" y="117" text-anchor="middle" font-size="17" font-weight="700" fill="var(--head)">innovation</text>
+    ${["Designed|systematically","Evidenced|data planned first","Reflected on|what changed, why","Shared|publicly"]
+      .map((t,i) => { const x = 218 + i*196; const [a,bb] = t.split('|'); return h`
+      <line x1="${x-32}" y1="100" x2="${x-10}" y2="100" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar5)"/>
+      <rect x="${x}" y="60" width="168" height="80" rx="10" fill="var(--accent-50)" stroke="var(--accent-600)" stroke-width="2"/>
+      <text x="${x+84}" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="var(--accent-700)">${a}</text>
+      <text x="${x+84}" y="118" text-anchor="middle" font-size="14" fill="var(--muted)">${bb}</text>`;
+      }).join('')}
+    <rect x="8" y="196" width="1064" height="66" rx="10" fill="var(--head)"/>
+    <text x="540" y="222" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">SCHOLARSHIP OF TEACHING AND LEARNING</text>
+    <text x="540" y="246" text-anchor="middle" font-size="15" fill="#94a3b8">Grant &nbsp;·&nbsp; Q1 paper &nbsp;·&nbsp; copyright &nbsp;·&nbsp; competition medal &nbsp;·&nbsp; award portfolio</text>
+    <line x1="540" y1="146" x2="540" y2="190" stroke="var(--accent-600)" stroke-width="2" marker-end="url(#ar5)"/>
+  </svg>
+  <figcaption>The difference between a good lesson and scholarship is that the evidence was planned before the activity ran.</figcaption>
 </figure>`;
 
 /* Evidence hierarchy as a ladder — width encodes strength. */
@@ -765,18 +831,21 @@ views.welcome = () => h`
   <section>
     <div class="card">
       <span class="pill pill--accent">Workshop Module</span>
-      <h2 class="h" style="font-size:34px;margin:16px 0 12px">Kursus Asas Pengajaran dan Pembelajaran (KAPP)</h2>
+      <h2 class="h" style="font-size:34px;margin:16px 0 8px">Inovasi in Teaching and Learning</h2>
+      <p style="font-size:21px;font-weight:600;color:var(--accent-700);margin:0 0 12px">
+        Kursus Asas Pengajaran dan Pembelajaran (KAPP)</p>
       <p class="lede">An interactive session on innovation in teaching and learning, for new university lecturers.</p>
     </div>
   </section>
 
   <section>
-    ${sec(1, 'Learning Outcomes', 'What you will be able to do by the end of the session.')}
-    <div class="grid g3">
+    ${sec(1, 'Learning Outcomes', 'By the end of the session, participants should be able to:')}
+    <div class="grid g2">
       ${map([
-        ["Understand innovation", "What it really means, beyond using technology."],
-        ["Apply the framework", "Use the design cycle on a real classroom problem."],
-        ["Explore case studies", "Five proven examples, with their evidence."]
+        ["Explain", "What innovation in teaching and learning means."],
+        ["Identify", "The essential characteristics of a meaningful teaching innovation."],
+        ["Apply", "The 6P design cycle on a real classroom problem."],
+        ["Design", "A simple teaching innovation using a structured process."]
       ], ([t, d], i) => h`
         <div class="card topline">
           <div class="dot" style="margin-bottom:12px">${i + 1}</div>
@@ -803,6 +872,11 @@ views.welcome = () => h`
             <div><b>Top World 2% Scientist</b><small>Elsevier BV &amp; Stanford (2022–2023)</small></div>
             <div><b>SEARCA Professorial Chair</b><small>2025–2026</small></div>
           </div>
+          <a href="https://zurinaza.github.io/Webpage/#p-top" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:12px 20px;
+                    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+                    border-radius:8px;color:#fff;text-decoration:none;font-weight:700;font-size:17px">
+            View full profile &nbsp;&rarr;</a>
         </div>
       </div>
     </div>
@@ -823,14 +897,24 @@ views.innovation = () => h`
   <section>
     <h2 class="h">What Innovation Actually Is</h2>
     <div class="navy">
-      <p class="stmt">Innovation is a deliberate change in the learning process that produces a
-      demonstrable improvement in learning.</p>
-      <p class="sub">The biggest misconception is that it requires expensive technology. It does not.</p>
+      <p class="stmt">A purposeful, evidence-informed change in teaching, learning or assessment that
+      addresses a genuine educational problem and produces meaningful improvement.</p>
+      <p class="sub">Innovation is not simply a different activity — and it does not require expensive technology.</p>
     </div>
   </section>
 
   <section>
-    ${sec(1, 'Criteria of a T&amp;L Innovation', 'All three must pass.')}
+    ${sec(1, 'Where It Starts', 'Nobody innovates because they woke up inspired. Something broke.')}
+    <div class="grid g2" style="gap:12px">
+      ${map(DRIVERS, (d, i) => h`
+        <div class="card card--flat" style="display:flex;gap:14px;align-items:flex-start;padding:16px">
+          <div class="dot" style="width:28px;height:28px;font-size:15px">${i + 1}</div>
+          <span class="small">${d}</span></div>`)}
+    </div>
+  </section>
+
+  <section>
+    ${sec(2, 'Criteria of a T&amp;L Innovation', 'All three must pass.')}
     ${FIG.criteria()}
     <div class="grid g3">
       ${map(TESTS, ([t, d, f], i) => h`
@@ -838,34 +922,34 @@ views.innovation = () => h`
           <div class="dot" style="margin-bottom:14px">${i + 1}</div>
           <h4 class="h">${t}</h4>
           <p class="small">${d}</p>
-          <div style="background:var(--no-bg);border:1px solid var(--no-line);border-radius:8px;padding:10px 12px;font-size:17.5px;color:var(--no-ink)">
+          <div style="background:var(--no-bg);border:1px solid var(--no-line);border-radius:8px;padding:10px 12px;font-size:16px;color:var(--no-ink)">
             <strong style="color:var(--no-ink)">Fails when:</strong> ${f}</div>
         </div>`)}
     </div>
   </section>
 
   <section>
-    ${sec(2, 'Where Innovation Lives', 'It only counts as pedagogical when it reaches the activity layer.')}
-    ${map(LAYERS, ([n, s, e, on], i) => h`
+    ${sec(3, 'Macro or Micro: Where You Can Act', 'Every course has two layers. Innovation is impossible in one and unavoidable in the other.')}
+    <p class="small" style="margin-bottom:12px;font-weight:600">Select a level:</p>
+    <div class="chips chips--big" role="group" aria-label="Level" style="margin-bottom:22px">
+      <button data-level="macro" aria-pressed="true">MACRO &mdash; already fixed</button>
+      <button data-level="micro" aria-pressed="false">MICRO &mdash; entirely yours</button>
+    </div>
+    <div id="levels"></div>
+  </section>
+
+  <section>
+    ${sec(4, 'Where Innovation Lives', 'It only counts as pedagogical when it reaches the activity layer.')}
+    ${map(LAYERS, ([n, sb, e, on], i) => h`
       <div class="layer ${on ? 'layer--on' : ''}" data-d="${i + 1}">
-        <b>${n}<small>${s}</small></b><span>${e}</span></div>`)}
+        <b>${n}<small>${sb}</small></b><span>${e}</span></div>`)}
     <div style="margin-top:16px;background:var(--head);color:#fff;border-radius:12px;padding:20px">
-      <strong style="color:#fff;font-size:20px">If the students' thinking is unchanged, you innovated the tool — not the pedagogy.</strong>
+      <strong style="color:#fff;font-size:20px">If the students&rsquo; thinking is unchanged, you innovated the tool — not the pedagogy.</strong>
     </div>
   </section>
 
   <section>
-    ${sec(3, 'Where It Starts', 'Nobody innovates because they woke up inspired. Something broke.')}
-    <div class="grid g2" style="gap:12px">
-      ${map(DRIVERS, (d, i) => h`
-        <div class="card card--flat" style="display:flex;gap:14px;align-items:flex-start;padding:16px">
-          <div class="dot" style="width:26px;height:26px;font-size:17px">${i + 1}</div>
-          <span class="small">${d}</span></div>`)}
-    </div>
-  </section>
-
-  <section>
-    ${sec(4, 'Six Places It Can Happen', 'Most lecturers imagine only the fifth. The third is where the leverage actually is.')}
+    ${sec(5, 'Six Places It Can Happen', 'Most lecturers imagine only the fifth. The third is where the leverage is.')}
     <div class="grid g3">
       ${map(TYPES, ([t, d], i) => h`
         <div class="card ${i === 2 ? 'card--tint' : ''}">
@@ -875,29 +959,86 @@ views.innovation = () => h`
   </section>
 
   <section>
-    ${sec(5, 'Guessing Game: Is It Innovation?', 'Seven scenarios. Decide before you read the explanation.')}
+    ${sec(6, 'Guessing Game: Is It Innovation?', 'Seven scenarios. Decide before you read the explanation.')}
     <div id="quizInnovation"></div>
   </section>`;
 
 views.pedagogy = () => h`
   <section>
-    <h2 class="h">High-Impact Pedagogies</h2>
-    <p class="lede">The named model underneath your activity. Naming it lets you find the literature, defend the design, and publish it.</p>
-    <div style="margin-top:16px;background:var(--accent-50);border-left:4px solid var(--accent-500);border-radius:0 8px 8px 0;padding:14px 18px">
-      <span class="small">I ran these for years before I could name any of them. Naming them is what turned activities into papers.</span>
+    <h2 class="h">Pedagogy Is the &ldquo;Why&rdquo;</h2>
+    <div class="navy">
+      <p class="stmt">Technology tells us what is possible. Pedagogy tells us what is appropriate.</p>
+      <p class="sub">Before asking &ldquo;what technology should I use?&rdquo; — ask &ldquo;how should my students learn this?&rdquo;</p>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <p style="margin:0"><strong>Pedagogy</strong> is a deliberate learning logic that connects the problem,
+      the student experience, the assessment and the evidence.</p>
     </div>
   </section>
 
   <section>
-    ${sec(1, 'Seven High-Impact Pedagogies', 'Each with its principle, what it looks like in a room, and a worked example.')}
+    ${sec(1, 'Student-Centred Learning', 'Meaningful learning requires more than exposure to content.')}
+    <div class="grid g3">
+      ${map(SCL, ([t, d], i) => h`
+        <div class="card topline">
+          <div class="dot" style="margin-bottom:12px">${i + 1}</div>
+          <h4 class="h" style="font-size:19px">${t}</h4>
+          <p class="small">${d}</p></div>`)}
+    </div>
+  </section>
+
+  <section>
+    ${sec(2, 'What Is Active Learning?', 'Students are cognitively engaged in doing — and in thinking about what they are doing.')}
+    <div class="card">
+      <p class="small" style="font-weight:600;margin-bottom:14px">The verbs that make it active:</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        ${map(ACTIVE_VERBS, v => h`<span class="pill" style="background:var(--accent-100);color:var(--accent-700)">${v}</span>`)}
+      </div>
+      <p class="small" style="margin-top:16px">Each asks the student to <strong>think</strong> and <strong>do</strong> — not to receive.</p>
+    </div>
+  </section>
+
+  <section>
+    ${sec(3, 'Engagement Is Not the Same as Learning', 'Four checkpoints before you call an activity active learning.')}
     <div class="grid g2">
-      ${map(PEDAGOGIES, ([n, p, l, e], i) => h`
+      ${map(ACTIVE_CHECK, ([t, d], i) => h`
+        <div class="card" style="border-left:4px solid var(--accent-500)">
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+            <span class="dot">${i + 1}</span>
+            <h4 class="h" style="font-size:18px;margin:0;text-transform:uppercase;letter-spacing:.04em">${t}</h4></div>
+          <p class="small" style="margin:0">${d}</p></div>`)}
+    </div>
+    <div style="margin-top:16px;background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:12px;padding:18px">
+      <strong style="color:var(--warn-ink)">Activity &ne; active learning.</strong>
+      <span class="small" style="color:var(--warn-ink)"> A busy classroom is not proof that thinking happened.</span>
+    </div>
+  </section>
+
+  <section>
+    ${sec(4, 'It Can Be Small or Large', 'Choose the method that fits the learning need — low preparation on the left, higher design and evidence demand on the right.')}
+    <div class="grid g3">
+      ${map(ACTIVE_SCALE, ([t, d], i) => h`
+        <div class="card" style="text-align:center">
+          <div class="pill ${i > 3 ? 'pill--accent' : ''}" style="${i > 3 ? '' : 'background:var(--page);color:var(--head)'}">${d}</div>
+          <h4 class="h" style="font-size:18px;margin-top:12px">${t}</h4></div>`)}
+    </div>
+  </section>
+
+  <section>
+    ${sec(5, 'Pedagogies That Support Innovation', 'Choose based on the learning problem — not on popularity.')}
+    <div class="card" style="margin-bottom:20px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        ${map(PED_FAMILY, v => h`<span class="pill" style="background:var(--page);color:var(--head)">${v}</span>`)}
+      </div>
+    </div>
+    <div class="grid g2">
+      ${map(PEDAGOGIES, ([n, pr, l, e], i) => h`
         <div class="card topline">
           <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px">
-            <h4 class="h" style="font-size:21px;margin:0">${n}</h4>
+            <h4 class="h" style="font-size:20px;margin:0">${n}</h4>
             <span class="pill" style="background:var(--accent-100);color:var(--accent-700);flex:none">${pad(i + 1)}</span>
           </div>
-          <p style="font-weight:700;color:var(--head);font-size:18px">${p}</p>
+          <p style="font-weight:700;color:var(--head);font-size:17px">${pr}</p>
           <p class="small"><strong>Looks like:</strong> ${l}</p>
           <p class="small"><strong>For example:</strong> ${e}</p>
         </div>`)}
@@ -905,55 +1046,72 @@ views.pedagogy = () => h`
   </section>
 
   <section>
-    <div style="background:var(--head);color:#fff;border-radius:16px;padding:28px">
-      <h3 class="h" style="color:#fff;font-size:22px">How to choose</h3>
-      <p style="color:#cbd5e1;margin:0">Pick the construct first, then design the activity from it — not the reverse.
-      An activity chosen first and justified afterwards is how you end up with something that looks
-      innovative and teaches nothing.</p>
+    ${sec(6, 'Which Pedagogy Would You Choose?', 'Four families, and the role you take in each.')}
+    <div class="row" style="background:var(--page);font-weight:700">
+      <div class="row__k">Pedagogy</div>
+      <div class="row__v">Starts from</div>
+      <div class="row__v">Students do</div>
+      <div class="row__v" style="min-width:140px">You become</div>
     </div>
+    ${map(PED_CHOOSER, ([a, b2, c, d]) => h`
+      <div class="row">
+        <div class="row__k">${a}</div>
+        <div class="row__v">${b2}</div>
+        <div class="row__v">${c}</div>
+        <div class="row__v" style="min-width:140px;color:var(--accent-700);font-weight:700">${d}</div>
+      </div>`)}
   </section>
 
   <section>
-    ${sec(2, 'Name That Pedagogy', 'Seven classroom scenarios.')}
+    ${sec(7, 'Name That Pedagogy', 'Seven classroom scenarios.')}
     <div id="quizPedagogy"></div>
   </section>`;
 
 views.method = () => h`
   <section>
-    <h2 class="h">Method to Craft Innovation</h2>
+    <h2 class="h">The 6P Innovation Model</h2>
     <div class="dark">
-      <p style="font-size:21px;color:#fff;font-weight:600">Every course has two layers: one locked for the accreditation cycle, one entirely yours.</p>
-      <p style="margin:12px 0 0">Innovation is impossible in the first and unavoidable in the second. Knowing which is which is the method.</p>
+      <p style="font-size:21px;color:#fff;font-weight:600">Keep the story from problem to impact.</p>
+      <p style="margin:12px 0 0">Innovation is a purposeful, evidence-informed change in learning —
+      not simply a different activity.</p>
     </div>
   </section>
 
   <section>
-    ${sec(1, 'Know Your Two Levels', 'Junior lecturers exhaust themselves fighting the macro column.')}
-    <p class="small" style="margin-bottom:12px;font-weight:600">Select a level:</p>
-    <div class="chips chips--big" role="group" aria-label="Level" style="margin-bottom:22px">
-      <button data-level="macro" aria-pressed="true">MACRO &mdash; already fixed</button>
-      <button data-level="micro" aria-pressed="false">MICRO &mdash; entirely yours</button>
-    </div>
-    <div id="levels"></div>
-    <div class="grid g3" style="margin-top:20px">
-      <div class="card" style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--muted)">6</div>
-        <div class="small" style="font-weight:600">Macro items — fixed</div></div>
-      <div class="card card--tint" style="text-align:center"><div style="font-size:36px;font-weight:700;color:var(--accent-600)">6</div>
-        <div class="small" style="font-weight:600">Micro items — yours</div></div>
-      <div style="background:var(--head);color:#fff;border-radius:16px;padding:24px;display:grid;place-items:center;text-align:center">
-        <strong style="color:#fff">Start every innovation in the micro column.</strong></div>
-    </div>
-  </section>
-
-  <section>
-    ${sec(2, 'The 5-Step Design Cycle')}
-    ${FIG.cycle()}
-    <p class="small" style="margin-bottom:18px">Click any step for detail.</p>
+    ${sec(1, 'The Model')}
+    ${FIG.sixp()}
+    <p class="small" style="margin-bottom:18px">Click any stage for detail.</p>
     <div class="steps">
       <div class="steps__list">
-        ${map(CYCLE, ([t], i) => h`<button data-step="${i}" aria-pressed="${i === 0}"><b>Step ${i + 1}</b>${t}</button>`)}
+        ${map(SIXP, ([t, q], i) => h`<button data-step="${i}" aria-pressed="${i === 0}"><b>${i + 1} &middot; ${t}</b>${q}</button>`)}
       </div>
       <div class="steps__panel"><div class="card" id="cyclePanel"></div></div>
+    </div>
+  </section>
+
+  <section>
+    ${sec(2, 'Innovation Does Not Have to Be Huge', 'Start small, evaluate, improve, then scale.')}
+    <div class="grid g3">
+      ${map([
+        ["One activity", "A single session you redesign."],
+        ["One assessment", "Same weighting, different form."],
+        ["One cohort", "Then compare with the next."]
+      ], ([t, d]) => h`<div class="card topline"><h4 class="h" style="font-size:19px">${t}</h4><p class="small">${d}</p></div>`)}
+    </div>
+  </section>
+
+  <section>
+    ${sec(3, 'Avoiding Common Traps', 'An innovation fails when its parts do not point at the same learning outcome.')}
+    <div class="grid g2">
+      ${map([
+        ["Technology first", "Picking an app before defining the learning problem."],
+        ["Activity without outcome", "A busy classroom that no CO can claim."],
+        ["Evidence retro-fitted", "Data invented after the semester ends."],
+        ["Assessment left behind", "New activity, old test — so students revert."]
+      ], ([t, d], i) => h`
+        <div class="card" style="background:var(--no-bg);border-color:var(--no-line)">
+          <h4 class="h" style="font-size:18px">Trap ${i + 1} &middot; ${t}</h4>
+          <p class="small">${d}</p></div>`)}
     </div>
   </section>
 
@@ -962,11 +1120,11 @@ views.method = () => h`
 views.cases = () => h`
   <section>
     <h2 class="h">Assessment &amp; Case Studies</h2>
-    <p class="lede">Five innovations that ran in real courses — each with its evidence collected on the first run.</p>
+    <p class="lede">Five innovations that ran in real courses. Different activities — the same 6P logic underneath.</p>
   </section>
 
   <section>
-    ${sec(1, 'Five Proven Case Studies', 'Select a case to see the problem, method, impact and outputs.')}
+    ${sec(1, 'Five Proven Case Studies', 'Each one analysed through the same 6P model. Select a case:')}
     <div class="chips" role="group" aria-label="Case studies">
       ${map(CASES, (c, i) => h`<button data-case="${i}" aria-pressed="${i === 0}">${i + 1}. ${c.tab}</button>`)}
     </div>
@@ -992,24 +1150,21 @@ views.activities = () => h`
   </section>
 
   <section>
-    ${sec(1, 'Choose an Activity', 'Two things you will build in this room today. Select one:')}
-    <div class="grid g2">
-      <button class="card actPick" data-act="tiktok" aria-pressed="true" style="text-align:left;cursor:pointer">
-        <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-          <span class="dot dot--solid">01</span>
-          <span class="small" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">24 minutes</span>
-        </div>
-        <h4 class="h">The TikTok Challenge</h4>
-        <p class="small" style="margin:0">Sixty seconds on the innovation you just designed</p>
-      </button>
-      <button class="card actPick" data-act="vibe" aria-pressed="false" style="text-align:left;cursor:pointer">
-        <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-          <span class="dot dot--solid">02</span>
-          <span class="small" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">25 minutes</span>
-        </div>
-        <h4 class="h">The Vibe Coding Challenge</h4>
-        <p class="small" style="margin:0">Build a small game that teaches one concept from your course</p>
-      </button>
+    ${sec(1, 'Choose an Activity', 'Three things you will do in this room today. Select one:')}
+    <div class="grid g3">
+      ${map([
+        ["mystery", "01", "20 min", "The Mystery of the Missing Innovation", "Parts 1 and 2 — spot what is missing"],
+        ["tiktok",  "02", "24 min", "The TikTok Challenge", "Sixty seconds on your own innovation"],
+        ["vibe",    "03", "25 min", "The Vibe Coding Challenge", "Build a small game that teaches one concept"]
+      ], ([id, n, t, title, sub], i) => h`
+        <button class="card actPick" data-act="${id}" aria-pressed="${i === 0}" style="text-align:left;cursor:pointer">
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+            <span class="dot dot--solid">${n}</span>
+            <span class="small" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t}</span>
+          </div>
+          <h4 class="h" style="font-size:19px">${title}</h4>
+          <p class="small" style="margin:0">${sub}</p>
+        </button>`)}
     </div>
   </section>
 
@@ -1066,31 +1221,36 @@ views.sotl = () => h`
 
 views.challenge = () => h`
   <section>
-    <h2 class="h">The Challenge</h2>
-    <p class="lede">One problem from your syllabus. Not a curriculum overhaul.</p>
+    <h2 class="h">Design Your Own Innovation</h2>
+    <p class="lede">One problem from your syllabus, mapped onto the 6P model. Not a curriculum overhaul.</p>
   </section>
 
   <section>
-    ${sec(1, 'Draft Your Plan', 'Four boxes. Fill them in now, while you still believe it is possible.')}
-    <div class="card">
-      <label class="f"><span>1. Identify the problem</span>
-        <textarea id="fProblem" rows="3" placeholder="What is actually going wrong in your course?"></textarea></label>
-      <label class="f"><span>2. Choose a pedagogical construct</span>
-        <input type="text" id="fConstruct" placeholder="e.g. Flipped Classroom, Project-Based Learning"></label>
-      <label class="f"><span>3. Design the activity</span>
-        <textarea id="fActivity" rows="3" placeholder="What will the students actually do?"></textarea></label>
-      <label class="f"><span>4. Build the evidence plan</span>
-        <input type="text" id="fEvidence" placeholder="What data will you collect, and in which week?"></label>
+    ${sec(1, 'Draft Your Plan', 'Fill these in now, while you still believe it is possible.')}
+    <div class="card" id="planForm">
+      <label class="f"><span>1 &middot; Problem — what is not working?</span>
+        <textarea id="fProblem" rows="3" placeholder="My students struggle with…"></textarea></label>
+      <label class="f"><span>2 &middot; Purpose — what should improve?</span>
+        <input type="text" id="fPurpose" placeholder="The change in learning you are aiming for"></label>
+      <label class="f"><span>3 &middot; Pedagogy — how will learning happen?</span>
+        <input type="text" id="fConstruct" placeholder="e.g. flipped classroom, PBL, experiential learning"></label>
+      <label class="f"><span>4 &middot; Practice — what will students experience?</span>
+        <textarea id="fActivity" rows="3" placeholder="The activity, assessment or material they actually meet"></textarea></label>
+      <label class="f"><span>5 &middot; Proof — what evidence, and in which week?</span>
+        <input type="text" id="fEvidence" placeholder="e.g. pre/post questionnaire, week 6"></label>
+      <label class="f"><span>6 &middot; Impact — what would change, and why does it matter?</span>
+        <input type="text" id="fImpact" placeholder="For students, the course, and beyond it"></label>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px">
-        <button class="btn" id="planBtn" disabled>Download my plan</button>
-        <span class="small" id="planHint">Complete at least the problem and the activity.</span>
+        <button class="btn" id="printBtn" disabled>Print / save as PDF</button>
+        <button class="btn btn--ghost" id="planBtn" disabled>Download as text</button>
+        <span class="small" id="planHint">Complete at least the problem and the practice.</span>
       </div>
     </div>
   </section>
 
   <section>
     <div style="background:var(--accent-50);border:1px solid var(--accent-100);border-radius:16px;padding:24px">
-      <strong style="font-size:21px">Start small: one topic, one cohort, one low-stakes week. Not a full course redesign.</strong>
+      <strong style="font-size:21px">Start small: one topic, one cohort, one low-stakes week.</strong>
     </div>
   </section>`;
 
@@ -1104,11 +1264,15 @@ views.summary = () => h`
     ${sec(1, 'Key Takeaways')}
     <div class="grid g2">
       ${map([
-        ["Lecturers Are Thinkers", "Apply creativity and innovation to design purposeful, impactful materials."],
-        ["Renew Intention &amp; Be Authentic", "Make sense of the content for your students and for yourself."],
-        ["Modify the Micro Level", "That is where you have full control — and where innovation lives."],
-        ["Integrate Research (SoTL)", "Collect data, evaluate impact, and publish your findings."]
-      ], ([t, d]) => h`<div class="card topline"><h4 class="h">${t}</h4><p class="small">${d}</p></div>`)}
+        ["Start with the educational problem", "Not the technology. The problem comes first, every time."],
+        ["Innovation is purposeful and evidence-informed", "That is what the 6P model keeps you honest about."],
+        ["The lecturer's role is shifting", "Toward learning design and facilitation."],
+        ["Active learning needs pedagogy and evidence", "Activity alone is not active learning."],
+        ["Evidence of impact validates the idea", "And it is what makes scale possible."],
+        ["Start small", "One activity, one assessment, one cohort. Then evaluate and grow."]
+      ], ([t, d], i) => h`<div class="card topline">
+        <div class="dot" style="margin-bottom:12px">${i + 1}</div>
+        <h4 class="h">${t}</h4><p class="small">${d}</p></div>`)}
     </div>
   </section>
 
@@ -1132,6 +1296,47 @@ views.summary = () => h`
 /* ===========================================================================
    ACTIVITY PANELS
    ========================================================================= */
+function panelMystery() {
+  return h`
+    <div class="dark" style="margin-bottom:24px">
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+        <span style="font-size:38px;font-weight:700;opacity:.45">01</span>
+        <span class="pill" style="background:rgba(255,255,255,.18)">20 MINUTES</span>
+      </div>
+      <h3 class="h" style="font-size:26px;color:#fff">The Mystery of the Missing Innovation</h3>
+      <p style="margin:6px 0 0">Parts 1 and 2 — work out what is missing before you are told</p>
+    </div>
+
+    <div class="card card--tint" style="margin-bottom:24px">
+      <span class="eyebrow">Your task</span>
+      <p style="margin:0">Open the activity below. You will be shown teaching scenarios that look like
+      innovation. Decide what is missing in each — and which of the 6P stages was skipped.</p>
+    </div>
+
+    <div class="card" style="text-align:center;padding:32px 24px">
+      <p class="small" style="margin-bottom:18px;font-weight:600">Launch the activity in a new tab:</p>
+      <a class="btn" href="https://zurinaza.github.io/KAPP-UPM/" target="_blank" rel="noopener"
+         style="text-decoration:none;font-size:18px;padding:16px 28px">
+        Open the KAPP-UPM activity &nbsp;&rarr;</a>
+      <p class="small" style="margin-top:16px;color:var(--muted);word-break:break-all">zurinaza.github.io/KAPP-UPM/</p>
+    </div>
+
+    <div class="grid g2" style="margin-top:24px">
+      ${map([
+        ["Part 1 &middot; Spot it", "Read each scenario and name the missing 6P stage. Problem? Proof? Pedagogy?"],
+        ["Part 2 &middot; Fix it", "Rewrite one scenario so that every stage is present. One sentence per stage."]
+      ], ([t, d], i) => h`
+        <div class="card" style="border-left:4px solid var(--accent-500)">
+          <h4 class="h" style="font-size:19px">${t}</h4>
+          <p class="small" style="margin:0">${d}</p></div>`)}
+    </div>
+
+    <div style="margin-top:24px;background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:12px;padding:18px">
+      <strong style="color:var(--warn-ink)">Most missing pieces are Proof.</strong>
+      <span class="small" style="color:var(--warn-ink)"> The activity is usually fine. The evidence was never planned.</span>
+    </div>`;
+}
+
 function panelTiktok() {
   return h`
     <div class="dark" style="margin-bottom:24px">
@@ -1377,11 +1582,11 @@ const TABS = [
   ['welcome',    'Welcome and Introduction'],
   ['innovation', '1. What Is Innovation?'],
   ['pedagogy',   '2. Pedagogies'],
-  ['method',     '3. Method to Craft Innovation'],
+  ['method',     '3. The 6P Innovation Model'],
   ['cases',      '4. Assessment &amp; Case Studies'],
   ['activities', '5. Session Activities'],
   ['sotl',       '6. Research &amp; SoTL'],
-  ['challenge',  '7. Challenge'],
+  ['challenge',  '7. Design Your Own Innovation'],
   ['summary',    '8. Summary &amp; Moving Forward']
 ];
 
@@ -1408,14 +1613,8 @@ function show(id) {
 
 /* Behaviour for each view, bound after render. */
 function wire(id) {
-  if (id === 'innovation') mountQuiz(viewEl.querySelector('#quizInnovation'), INNOVATION_QUIZ, 'Guessing game');
-  if (id === 'pedagogy')   mountQuiz(viewEl.querySelector('#quizPedagogy'), PEDAGOGY_QUIZ, 'Name that pedagogy');
-  if (id === 'method')     mountQuiz(viewEl.querySelector('#quizMethod'), [SINGLE.method], 'Quick quiz');
-  if (id === 'cases')      mountQuiz(viewEl.querySelector('#quizCases'), [SINGLE.cases], 'Quick quiz');
-  if (id === 'sotl')       mountQuiz(viewEl.querySelector('#quizSotl'), [SINGLE.sotl], 'Quick quiz');
-  if (id === 'summary')    mountQuiz(viewEl.querySelector('#quizSummary'), [SINGLE.summary], 'Quick quiz');
-
-  if (id === 'method') {
+  if (id === 'innovation') {
+    mountQuiz(viewEl.querySelector('#quizInnovation'), INNOVATION_QUIZ, 'Guessing game');
     const box = viewEl.querySelector('#levels');
     const drawLevel = lvl => {
       box.className = 'fade';
@@ -1446,13 +1645,21 @@ function wire(id) {
       viewEl.querySelectorAll('[data-level]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
       drawLevel(b.dataset.level);
     });
+  }
+  if (id === 'pedagogy')   mountQuiz(viewEl.querySelector('#quizPedagogy'), PEDAGOGY_QUIZ, 'Name that pedagogy');
+  if (id === 'method')     mountQuiz(viewEl.querySelector('#quizMethod'), [SINGLE.method], 'Quick quiz');
+  if (id === 'cases')      mountQuiz(viewEl.querySelector('#quizCases'), [SINGLE.cases], 'Quick quiz');
+  if (id === 'sotl')       mountQuiz(viewEl.querySelector('#quizSotl'), [SINGLE.sotl], 'Quick quiz');
+  if (id === 'summary')    mountQuiz(viewEl.querySelector('#quizSummary'), [SINGLE.summary], 'Quick quiz');
 
+  if (id === 'method') {
     const panel = viewEl.querySelector('#cyclePanel');
     const drawStep = n => {
       panel.className = 'card fade';
       panel.innerHTML = h`<div class="dot dot--solid" style="width:46px;height:46px;font-size:22px;margin-bottom:16px">${n + 1}</div>
-        <h3 class="h" style="font-size:26px">${CYCLE[n][0]}</h3>
-        <p class="lede" style="margin:0">${CYCLE[n][1]}</p>`;
+        <h3 class="h" style="font-size:26px">${SIXP[n][0]}</h3>
+        <p class="lede" style="margin:8px 0 10px;font-weight:600">${SIXP[n][1]}</p>
+        <p class="small" style="margin:0">${SIXP[n][2]}</p>`;
     };
     drawStep(0);
     viewEl.querySelectorAll('[data-step]').forEach(b => b.onclick = () => {
@@ -1470,9 +1677,12 @@ function wire(id) {
         <div class="card">
           <span class="eyebrow">${c.context}</span>
           <h3 class="h" style="margin-bottom:20px">${c.title}</h3>
-          ${map(c.rows, ([k, v]) => h`
+          ${map(c.rows, ([k, v], i) => h`
             <div class="row" style="box-shadow:none;background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:14px 0;margin:0">
-              <div class="row__k" style="min-width:150px;color:var(--accent-700);font-size:17.5px;letter-spacing:.06em;text-transform:uppercase">${k}</div>
+              <div class="row__k" style="min-width:200px;display:flex;gap:12px;align-items:center">
+                <span class="dot" style="width:28px;height:28px;font-size:15px">${i + 1}</span>
+                <span style="color:var(--accent-700);font-size:17.5px;letter-spacing:.06em;text-transform:uppercase">${k}</span>
+              </div>
               <div class="row__v">${v}</div></div>`)}
           <div style="margin-top:20px;background:var(--head);color:#fff;border-radius:12px;padding:18px">
             <span style="font-size:17px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8">Outputs</span>
@@ -1488,11 +1698,12 @@ function wire(id) {
 
   if (id === 'activities') {
     const panel = viewEl.querySelector('#actPanel');
+    const panels = { mystery: panelMystery, tiktok: panelTiktok, vibe: panelVibe };
     const draw = which => {
       panel.className = 'fade';
-      panel.innerHTML = which === 'tiktok' ? panelTiktok() : panelVibe();
+      panel.innerHTML = (panels[which] || panelMystery)();
     };
-    draw('tiktok');
+    draw('mystery');
     viewEl.querySelectorAll('.actPick').forEach(b => b.onclick = () => {
       viewEl.querySelectorAll('.actPick').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
       draw(b.dataset.act);
@@ -1500,36 +1711,80 @@ function wire(id) {
   }
 
   if (id === 'challenge') {
+    const F = ['Problem', 'Purpose', 'Construct', 'Activity', 'Evidence', 'Impact'];
+    const LABELS = [
+      ['1 · PROBLEM', 'What is not working?'],
+      ['2 · PURPOSE', 'What should improve?'],
+      ['3 · PEDAGOGY', 'How will learning happen?'],
+      ['4 · PRACTICE', 'What will students experience?'],
+      ['5 · PROOF', 'What evidence, and when?'],
+      ['6 · IMPACT', 'What changed, and why it matters']
+    ];
     const get = k => viewEl.querySelector('#f' + k);
-    const btn = viewEl.querySelector('#planBtn');
+    const val = k => get(k).value.trim();
+    const printBtn = viewEl.querySelector('#printBtn');
+    const planBtn = viewEl.querySelector('#planBtn');
     const hint = viewEl.querySelector('#planHint');
+
     const check = () => {
-      const ok = get('Problem').value.trim() && get('Activity').value.trim();
-      btn.disabled = !ok;
-      hint.textContent = ok ? 'Ready. Keep it somewhere you will see it in week one.'
-                            : 'Complete at least the problem and the activity.';
+      const ok = val('Problem') && val('Activity');
+      printBtn.disabled = planBtn.disabled = !ok;
+      hint.textContent = ok ? 'Ready. Print it, or keep the text file somewhere you will see it in week one.'
+                            : 'Complete at least the problem and the practice.';
     };
-    ['Problem', 'Construct', 'Activity', 'Evidence'].forEach(k => get(k).addEventListener('input', check));
+    F.forEach(k => get(k).addEventListener('input', check));
     check();
 
-    btn.onclick = () => {
-      const text = [
-        'MY INNOVATION PLAN',
+    const lines = () => F.map((k, i) => [LABELS[i][0], LABELS[i][1], val(k) || '(not completed)']);
+
+    /* Print: build a clean sheet in a new window rather than printing the app
+       chrome. Falls back to a message if the popup is blocked. */
+    printBtn.onclick = () => {
+      const rows = lines().map(([a, q, v]) => `
+        <tr><th>${a}<span>${q}</span></th><td>${v.replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]))}</td></tr>`).join('');
+      const w = window.open('', '_blank');
+      if (!w) { hint.textContent = 'Allow pop-ups for this page, then press print again.'; return; }
+      w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8">
+        <title>My Innovation Plan</title><style>
+        @page { margin: 18mm; }
+        body { font: 16px/1.6 Georgia, serif; color: #111; max-width: 800px; margin: 0 auto; padding: 24px; }
+        h1 { font-size: 26px; margin: 0 0 4px; }
+        .meta { font: 13px/1.5 system-ui, sans-serif; color: #555; margin-bottom: 26px;
+                border-bottom: 2px solid #111; padding-bottom: 14px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; vertical-align: top; width: 210px; padding: 16px 16px 16px 0;
+             border-bottom: 1px solid #ccc; font: 700 14px/1.4 system-ui, sans-serif;
+             letter-spacing: .05em; color: #16305c; }
+        th span { display: block; font-weight: 400; color: #666; letter-spacing: 0;
+                  text-transform: none; margin-top: 4px; }
+        td { padding: 16px 0; border-bottom: 1px solid #ccc; vertical-align: top; }
+        footer { margin-top: 26px; font: italic 14px/1.6 Georgia, serif; color: #444; }
+        </style></head><body>
+        <h1>My Innovation Plan</h1>
+        <div class="meta">Designing Meaningful Teaching Materials &mdash; KAPP Workshop<br>
+        Prof. Ts. Dr. Zurina Zainal Abidin &middot; ${new Date().toLocaleDateString()}</div>
+        <table>${rows}</table>
+        <footer>Start small: one topic, one cohort, one low-stakes week.<br>
+        Collect the evidence the first time it runs &mdash; not afterwards.</footer>
+        </body></html>`);
+      w.document.close();
+      w.focus();
+      setTimeout(() => w.print(), 300);
+    };
+
+    planBtn.onclick = () => {
+      const text = ['MY INNOVATION PLAN',
         'Designing Meaningful Teaching Materials — Prof. Ts. Dr. Zurina Zainal Abidin',
-        new Date().toLocaleString(), '',
-        '1. THE PROBLEM', get('Problem').value || '(not completed)', '',
-        '2. PEDAGOGICAL CONSTRUCT', get('Construct').value || '(not completed)', '',
-        '3. THE ACTIVITY', get('Activity').value || '(not completed)', '',
-        '4. EVIDENCE PLAN — what, and in which week', get('Evidence').value || '(not completed)', '',
-        'Start small: one topic, one cohort, one low-stakes week.',
-        'Collect the evidence the first time it runs — not afterwards.'
-      ].join('\n');
+        new Date().toLocaleString(), '']
+        .concat(lines().flatMap(([a, q, v]) => [a + ' — ' + q, v, '']))
+        .concat(['Start small: one topic, one cohort, one low-stakes week.',
+                 'Collect the evidence the first time it runs — not afterwards.']).join('\n');
       const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
       const a = document.createElement('a');
       a.href = url; a.download = 'my-innovation-plan.txt';
       document.body.appendChild(a); a.click(); a.remove();
       URL.revokeObjectURL(url);
-      hint.textContent = 'Downloaded. Keep it somewhere you will see it in week one.';
+      hint.textContent = 'Downloaded.';
     };
   }
 }
