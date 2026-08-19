@@ -154,6 +154,58 @@ h3.h { font-size: 24px; margin-bottom: 12px; }
 h4.h { font-size: 20px; margin-bottom: 8px; }
 .lede { font-size: 19px; color: var(--ink); max-width: 74ch; }
 .small { font-size: 17px; color: var(--ink); }
+.howto { counter-reset: none; }
+.howto__phase {
+  display: flex; align-items: center; gap: 12px;
+  margin: 26px 0 14px; font-weight: 700; font-size: 19px; color: var(--head);
+}
+.howto__phase span {
+  font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--accent-100); color: var(--accent-700);
+  padding: 5px 12px; border-radius: 6px;
+}
+.howto__phase i { flex: 1; height: 1px; background: var(--line); font-style: normal; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: var(--card); padding: 15px 18px; margin-bottom: 10px;
+}
+.step__n {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent-600); color: #fff;
+  display: grid; place-items: center; font-weight: 700; font-size: 16px;
+}
+.step__t { font-weight: 700; color: var(--head); }
+.step__d { font-size: 16px; color: var(--ink); margin-top: 3px; }
+
+.diag { margin-top: 22px; }
+.diag__item {
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 1px solid var(--line); border-left-width: 5px;
+  border-radius: var(--r-md); padding: 16px 18px; margin-bottom: 10px;
+  background: var(--card);
+}
+.diag__item[data-v="ok"]   { border-left-color: #10b981; background: var(--ok-bg); }
+.diag__item[data-v="warn"] { border-left-color: #d97706; background: var(--warn-bg); }
+.diag__item[data-v="weak"] { border-left-color: #dc2626; background: var(--no-bg); }
+.diag__badge {
+  flex: none; width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: 17px; color: #fff;
+}
+.diag__item[data-v="ok"]   .diag__badge { background: #10b981; }
+.diag__item[data-v="warn"] .diag__badge { background: #d97706; }
+.diag__item[data-v="weak"] .diag__badge { background: #dc2626; }
+.diag__body b { display: block; margin-bottom: 4px; }
+.diag__body a { color: var(--accent-700); font-weight: 700; }
+
+.icheck label {
+  display: flex; gap: 14px; align-items: flex-start; cursor: pointer;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: 15px 18px; margin-bottom: 10px; background: var(--card);
+}
+.icheck label:hover { background: var(--page); }
+.icheck input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--accent-600); flex: none; }
+
 .fig {
   background: var(--card); border: 1px solid var(--line);
   border-radius: var(--r-lg); padding: 22px; box-shadow: var(--shadow);
@@ -823,6 +875,92 @@ FIG.loop = () => h`
 </figure>`;
 
 /* ===========================================================================
+   PLAN DIAGNOSTIC
+   Rule-based, offline. Each rule targets a failure that actually occurs in
+   the room: symptom-as-problem, tool-as-pedagogy, evidence with no date,
+   and impact that merely restates purpose.
+   ========================================================================= */
+const TOOL_WORDS = ['kahoot','padlet','mentimeter','quizizz','powerpoint','ppt','video','youtube',
+  'ai','chatgpt','gemini','app','software','google form','zoom','whatsapp','slide','edpuzzle','canva'];
+
+const CONSTRUCT_WORDS = ['flip','active','experiential','kolb','constructiv','problem-based','pbl',
+  'project-based','collaborat','inquiry','challenge','multisensory','student-centred','student centered',
+  'scl','assessment-as-learning','microlearning','peer','authentic'];
+
+const SYMPTOM_ONLY = ['not interested','bored','lazy','weak students','do not care',
+  "don't care",'no motivation','poor english','tak faham'];
+
+const has = (t, list) => list.some(w => t.toLowerCase().includes(w));
+const words = t => t.trim().split(/\s+/).filter(Boolean).length;
+
+/* Each rule returns [verdict, message]. verdict: ok | warn | weak */
+const DIAG = [
+  { key: 'Problem', label: '1 · Problem', test: v => {
+      if (words(v) < 4) return ['weak', 'Too short to diagnose. Write one full sentence: what are students actually failing to do?'];
+      if (has(v, SYMPTOM_ONLY)) return ['warn', 'This reads as a <strong>symptom</strong>, not a cause. &ldquo;Not interested&rdquo; is what you observe — ask why it happens, and write that instead.'];
+      return ['ok', 'A specific problem. Everything else in the plan should point back at this.'];
+    }},
+  { key: 'Purpose', label: '2 · Purpose', test: v => {
+      if (!v) return ['weak', 'Empty. Without a purpose you cannot tell later whether the innovation worked.'];
+      if (words(v) < 4) return ['warn', 'Very brief. Name the change in <strong>learning</strong> you want — not the activity you will run.'];
+      return ['ok', 'Clear enough to measure against.'];
+    }},
+  { key: 'Construct', label: '3 · Pedagogy', test: v => {
+      if (!v) return ['weak', 'Empty. Unnamed pedagogy is the single commonest gap — and it is what makes the work publishable.'];
+      if (has(v, TOOL_WORDS) && !has(v, CONSTRUCT_WORDS))
+        return ['weak', 'You named a <strong>tool</strong>, not a construct. Which model of learning sits underneath it? See <a href="#" data-goto="pedagogy">Pedagogies</a>.'];
+      if (!has(v, CONSTRUCT_WORDS))
+        return ['warn', 'This may not be a recognised construct. If you cannot find literature under this name, borrow one from <a href="#" data-goto="pedagogy">Pedagogies</a>.'];
+      return ['ok', 'A named construct — so you can find the literature and defend the design.'];
+    }},
+  { key: 'Activity', label: '4 · Practice', test: v => {
+      if (words(v) < 5) return ['weak', 'Too vague. Describe what students physically do, in sequence.'];
+      const doing = /student|they|pair|group|team|each/i.test(v);
+      if (!doing) return ['warn', 'Written from the lecturer&rsquo;s side. Rewrite it as what <strong>students</strong> do.'];
+      return ['ok', 'Describes student action, not lecturer delivery.'];
+    }},
+  { key: 'Evidence', label: '5 · Proof', test: v => {
+      if (!v) return ['weak', 'Empty. Evidence retro-fitted after the semester is not evidence.'];
+      const timed = /week|w\d|before|after|pre|post|semester|session|day/i.test(v);
+      const soft = /feedback|survey|questionnaire|opinion/i.test(v);
+      const hard = /mark|score|grade|attainment|co\b|performance|rubric|test|result/i.test(v);
+      if (!timed && !hard) return ['weak', 'No timing and no performance measure. Name the <strong>week</strong> you collect, and something beyond opinion.'];
+      if (!timed) return ['warn', 'No week named. &ldquo;End of semester&rdquo; is not a plan — write the week number.'];
+      if (soft && !hard) return ['warn', 'Feedback alone is <a href="#" data-goto="sotl">level 1 evidence</a> — it convinces nobody. Add marks, attainment or rubric scores.'];
+      return ['ok', 'Timed, and reaching past satisfaction into performance.'];
+    }},
+  { key: 'Impact', label: '6 · Impact', test: (v, all) => {
+      if (!v) return ['warn', 'Empty. Impact is what you will claim in a paper, a portfolio or an award submission.'];
+      const pur = (all.Purpose || '').toLowerCase().trim();
+      if (pur && v.toLowerCase().trim() === pur)
+        return ['warn', 'Identical to your Purpose. Impact is what <strong>changed</strong> afterwards — for students, the course, or beyond it.'];
+      return ['ok', 'Distinct from purpose, and claimable once the evidence is in.'];
+    }}
+];
+
+const VIBE_STEPS = [
+  ['build', 'Open Google AI Studio', 'ai.google.dev/aistudio — sign in with your Google account.'],
+  ['build', 'Type what you want to build', 'An app, a game, a webpage. Plain language — use the five fields below as your script.'],
+  ['build', 'Click Build', 'The AI writes the code. You do not read it.'],
+  ['build', 'Ask it to convert the code into readable HTML', 'One instruction: &ldquo;convert this into a single readable HTML file.&rdquo; This is the step people miss.'],
+  ['build', 'Copy the code', 'Select all of it. You are about to paste it somewhere else.'],
+  ['share', 'Open Google Sites and choose Embed &rarr; Embed code', 'Paste the code into the box.'],
+  ['share', 'Drag the box to fit your content', 'Resize until the whole thing is visible without scrolling inside it.'],
+  ['share', 'Preview, and edit if needed', 'Look at it as a student would, on a phone as well as a laptop.'],
+  ['share', 'Set who you want to share it with', 'Your class, your faculty, or anyone with the link.'],
+  ['share', 'Publish', 'You now have a working teaching tool with a URL you can send.']
+];
+
+const ICHECK = [
+  ['Solves a learning problem?', 'Not a delivery problem, and not a preference of yours.'],
+  ['Changes the student experience?', 'What they do differs — not only what they are given.'],
+  ['Uses an appropriate pedagogy?', 'Named, and fitting the problem rather than the fashion.'],
+  ['Generates evidence of learning?', 'Planned before the activity runs.'],
+  ['Aligns with CLO / PLO?', 'It serves a stated outcome — otherwise it is decoration, however good it looks.'],
+  ['Could be refined or scaled?', 'It survives a bigger cohort, and a colleague running it without you.']
+];
+
+/* ===========================================================================
    VIEWS
    ========================================================================= */
 const views = {};
@@ -1153,7 +1291,7 @@ views.activities = () => h`
     ${sec(1, 'Choose an Activity', 'Three things you will do in this room today. Select one:')}
     <div class="grid g3">
       ${map([
-        ["mystery", "01", "20 min", "The Mystery of the Missing Innovation", "Parts 1 and 2 — spot what is missing"],
+        ["mystery", "01", "20 min", "The 6P Files", "The Mystery of the Missing Innovation"],
         ["tiktok",  "02", "24 min", "The TikTok Challenge", "Sixty seconds on your own innovation"],
         ["vibe",    "03", "25 min", "The Vibe Coding Challenge", "Build a small game that teaches one concept"]
       ], ([id, n, t, title, sub], i) => h`
@@ -1241,10 +1379,24 @@ views.challenge = () => h`
       <label class="f"><span>6 &middot; Impact — what would change, and why does it matter?</span>
         <input type="text" id="fImpact" placeholder="For students, the course, and beyond it"></label>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px">
-        <button class="btn" id="printBtn" disabled>Print / save as PDF</button>
+        <button class="btn" id="checkBtn" disabled>Check my plan</button>
+        <button class="btn btn--ghost" id="printBtn" disabled>Print / save as PDF</button>
         <button class="btn btn--ghost" id="planBtn" disabled>Download as text</button>
         <span class="small" id="planHint">Complete at least the problem and the practice.</span>
       </div>
+      <div id="diag" class="diag"></div>
+    </div>
+  </section>
+
+  <section>
+    ${sec(2, 'Innovation Check', 'Six questions. The ones you cannot tick are the ones worth fixing.')}
+    <div class="card icheck">
+      ${map(ICHECK, ([q, d], i) => h`
+        <label>
+          <input type="checkbox" class="ic" data-i="${i}">
+          <span><strong>${q}</strong><br><span class="small">${d}</span></span>
+        </label>`)}
+      <div id="icResult" style="margin-top:8px"></div>
     </div>
   </section>
 
@@ -1303,8 +1455,8 @@ function panelMystery() {
         <span style="font-size:38px;font-weight:700;opacity:.45">01</span>
         <span class="pill" style="background:rgba(255,255,255,.18)">20 MINUTES</span>
       </div>
-      <h3 class="h" style="font-size:26px;color:#fff">The Mystery of the Missing Innovation</h3>
-      <p style="margin:6px 0 0">Parts 1 and 2 — work out what is missing before you are told</p>
+      <h3 class="h" style="font-size:26px;color:#fff">The 6P Files</h3>
+      <p style="margin:6px 0 0">The Mystery of the Missing Innovation — work out what is missing before you are told</p>
     </div>
 
     <div class="card card--tint" style="margin-bottom:24px">
@@ -1315,10 +1467,10 @@ function panelMystery() {
 
     <div class="card" style="text-align:center;padding:32px 24px">
       <p class="small" style="margin-bottom:18px;font-weight:600">Launch the activity in a new tab:</p>
-      <a class="btn" href="https://zurinaza.github.io/KAPP-UPM/" target="_blank" rel="noopener"
+      <a class="btn" href="https://zurinaza.github.io/Innovation-Mystery/" target="_blank" rel="noopener"
          style="text-decoration:none;font-size:18px;padding:16px 28px">
-        Open the KAPP-UPM activity &nbsp;&rarr;</a>
-      <p class="small" style="margin-top:16px;color:var(--muted);word-break:break-all">zurinaza.github.io/KAPP-UPM/</p>
+        Open The 6P Files &nbsp;&rarr;</a>
+      <p class="small" style="margin-top:16px;color:var(--muted);word-break:break-all">zurinaza.github.io/Innovation-Mystery/</p>
     </div>
 
     <div class="grid g2" style="margin-top:24px">
@@ -1426,6 +1578,27 @@ function panelVibe() {
           <h4 class="h" style="font-size:19px">${t}</h4><p class="small">${d}</p></div>`)}
     </div>
 
+
+    <h4 class="h" style="margin:32px 0 8px">How to actually do it</h4>
+    <p class="small" style="margin-bottom:8px">Ten steps, in two phases. Nothing here needs a licence or a coding background.</p>
+    <div class="howto">
+      <div class="howto__phase"><span>Phase 1</span> Build it <i></i></div>
+      ${map(VIBE_STEPS.filter(x => x[0] === 'build'), ([, t, d], i) => h`
+        <div class="step">
+          <span class="step__n">${i + 1}</span>
+          <div><div class="step__t">${t}</div><div class="step__d">${d}</div></div>
+        </div>`)}
+      <div class="howto__phase"><span>Phase 2</span> Share it <i></i></div>
+      ${map(VIBE_STEPS.filter(x => x[0] === 'share'), ([, t, d], i) => h`
+        <div class="step">
+          <span class="step__n">${i + 6}</span>
+          <div><div class="step__t">${t}</div><div class="step__d">${d}</div></div>
+        </div>`)}
+    </div>
+    <div style="margin-top:14px;background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:12px;padding:16px">
+      <strong style="color:var(--warn-ink)">Step 4 is the one people skip.</strong>
+      <span class="small" style="color:var(--warn-ink)"> Without a single readable HTML file, there is nothing clean to paste into Google Sites.</span>
+    </div>
 
     <h4 class="h" style="margin:32px 0 8px">The prompt skeleton</h4>
     <p class="small" style="margin-bottom:16px">Fill these five fields on paper first. Vague in, vague out.</p>
@@ -1728,12 +1901,58 @@ function wire(id) {
 
     const check = () => {
       const ok = val('Problem') && val('Activity');
-      printBtn.disabled = planBtn.disabled = !ok;
+      printBtn.disabled = planBtn.disabled = checkBtn.disabled = !ok;
       hint.textContent = ok ? 'Ready. Print it, or keep the text file somewhere you will see it in week one.'
                             : 'Complete at least the problem and the practice.';
     };
-    F.forEach(k => get(k).addEventListener('input', check));
+    const checkBtn = viewEl.querySelector('#checkBtn');
+    const diag = viewEl.querySelector('#diag');
+    F.forEach(k => get(k).addEventListener('input', () => { check(); diag.innerHTML = ''; }));
     check();
+
+    /* Diagnostic: run each rule, render a verdict per stage. */
+    checkBtn.onclick = () => {
+      const all = {}; F.forEach(k => all[k] = val(k));
+      const results = DIAG.map(r => {
+        const [v, m] = r.test(all[r.key] || '', all);
+        return { label: r.label, v, m };
+      });
+      const weak = results.filter(r => r.v === 'weak').length;
+      const warn = results.filter(r => r.v === 'warn').length;
+      const verdict = weak ? `${weak} stage${weak > 1 ? 's' : ''} need work before this plan will hold.`
+                    : warn ? `Sound overall — ${warn} stage${warn > 1 ? 's' : ''} could be sharper.`
+                           : 'All six stages hold up. Run it, and collect the evidence the first time.';
+      const icon = { ok: '&check;', warn: '!', weak: '&times;' };
+      diag.innerHTML = h`
+        <div class="card" style="background:var(--page);margin-bottom:14px">
+          <strong style="font-size:19px">${verdict}</strong>
+        </div>
+        ${map(results, r => h`
+          <div class="diag__item" data-v="${r.v}">
+            <span class="diag__badge">${icon[r.v]}</span>
+            <div class="diag__body"><b>${r.label}</b><span class="small">${r.m}</span></div>
+          </div>`)}`;
+      diag.querySelectorAll('[data-goto]').forEach(a => a.onclick = e => {
+        e.preventDefault(); show(a.dataset.goto);
+      });
+      diag.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
+    /* Innovation check */
+    const icBoxes = Array.from(viewEl.querySelectorAll('.ic'));
+    const icResult = viewEl.querySelector('#icResult');
+    const icUpdate = () => {
+      const n = icBoxes.filter(b => b.checked).length;
+      if (!n) { icResult.innerHTML = ''; return; }
+      const missing = ICHECK.filter((_, i) => !icBoxes[i].checked).map(x => x[0]);
+      icResult.innerHTML = n === ICHECK.length
+        ? h`<div style="background:var(--ok-bg);border:1px solid var(--ok-line);color:var(--ok-ink);border-radius:12px;padding:16px">
+             <strong style="color:var(--ok-ink)">All six. That is an innovation, not just something new.</strong></div>`
+        : h`<div style="background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:12px;padding:16px">
+             <strong style="color:var(--warn-ink)">${n} of ${ICHECK.length}.</strong>
+             <span class="small" style="color:var(--warn-ink)"> Still open: ${missing.join(' &middot; ')}</span></div>`;
+    };
+    icBoxes.forEach(b => b.onchange = icUpdate);
 
     const lines = () => F.map((k, i) => [LABELS[i][0], LABELS[i][1], val(k) || '(not completed)']);
 
