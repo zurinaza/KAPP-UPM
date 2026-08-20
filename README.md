@@ -465,12 +465,53 @@ textarea::placeholder, input::placeholder { color: #4b5563; }
 
   <footer class="foot">
     <span>Speaker: Prof. Ts. Dr. Zurina Zainal Abidin &bull; KAPP Workshop</span>
+    <span id="visits" hidden></span>
     <span>&copy; 2026 University Innovation Lab</span>
   </footer>
 </div>
 
 <script>
 "use strict";
+
+/* ===========================================================================
+   VISITOR COUNTER  (optional — off until you fill in your code)
+   ---------------------------------------------------------------------------
+   A single HTML file cannot count visitors on its own; it needs a service.
+   This uses GoatCounter: free, no cookies, no personal data, GDPR-friendly.
+
+   TO SWITCH IT ON
+   1. Create a free account at goatcounter.com — pick a code, e.g. "kapp".
+   2. In GoatCounter → Settings, tick "Allow adding visitor counts on your
+      website" (it is off by default).
+   3. Put your code between the quotes below, e.g. COUNTER_CODE = 'kapp';
+
+   If left empty, or if the page is offline, nothing is sent, nothing is
+   displayed, and the file keeps working exactly as it does now.
+   ========================================================================= */
+const COUNTER_CODE = '';
+
+function startCounter() {
+  if (!COUNTER_CODE || location.protocol === 'file:') return;
+
+  /* Record the visit. */
+  const sc = document.createElement('script');
+  sc.async = true;
+  sc.src = '//gc.zgo.at/count.js';
+  sc.setAttribute('data-goatcounter', `https://${COUNTER_CODE}.goatcounter.com/count`);
+  document.body.appendChild(sc);
+
+  /* Read the total back and show it — silently give up on any failure. */
+  const slot = document.getElementById('visits');
+  fetch(`https://${COUNTER_CODE}.goatcounter.com/counter/TOTAL.json`)
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => {
+      const n = Number(String(d.count).replace(/[^\d]/g, ''));
+      if (!n) return;
+      slot.textContent = `${n.toLocaleString()} visits`;
+      slot.hidden = false;
+    })
+    .catch(() => {});
+}
 
 /* ===========================================================================
    DATA — all workshop content in one place
@@ -939,16 +980,17 @@ const DIAG = [
 ];
 
 const VIBE_STEPS = [
-  ['build', 'Open Google AI Studio', 'ai.google.dev/aistudio — sign in with your Google account.'],
+  ['build', 'Open Google Gemini and select Canvas', 'Canvas is the mode that writes code and previews it side by side.'],
   ['build', 'Type what you want to build', 'An app, a game, a webpage. Plain language — use the five fields below as your script.'],
-  ['build', 'Click Build', 'The AI writes the code. You do not read it.'],
+  ['build', 'Let it generate', 'The AI writes the code in the Canvas panel. You do not read it — you look at the preview.'],
   ['build', 'Ask it to convert the code into readable HTML', 'One instruction: &ldquo;convert this into a single readable HTML file.&rdquo; This is the step people miss.'],
   ['build', 'Copy the code', 'Select all of it. You are about to paste it somewhere else.'],
   ['share', 'Open Google Sites and choose Embed &rarr; Embed code', 'Paste the code into the box.'],
   ['share', 'Drag the box to fit your content', 'Resize until the whole thing is visible without scrolling inside it.'],
   ['share', 'Preview, and edit if needed', 'Look at it as a student would, on a phone as well as a laptop.'],
   ['share', 'Set who you want to share it with', 'Your class, your faculty, or anyone with the link.'],
-  ['share', 'Publish', 'You now have a working teaching tool with a URL you can send.']
+  ['share', 'Publish', 'You now have a working teaching tool with a URL you can send.'],
+  ['update', 'To change anything later, go back to your Gemini Canvas', 'Edit the code you generated earlier, ask for the readable HTML again, then re-paste it into Google Sites. Do not try to edit the pasted code inside Sites.']
 ];
 
 const ICHECK = [
@@ -1580,7 +1622,7 @@ function panelVibe() {
 
 
     <h4 class="h" style="margin:32px 0 8px">How to actually do it</h4>
-    <p class="small" style="margin-bottom:8px">Ten steps, in two phases. Nothing here needs a licence or a coding background.</p>
+    <p class="small" style="margin-bottom:8px">Eleven steps, in three phases. Nothing here needs a licence or a coding background.</p>
     <div class="howto">
       <div class="howto__phase"><span>Phase 1</span> Build it <i></i></div>
       ${map(VIBE_STEPS.filter(x => x[0] === 'build'), ([, t, d], i) => h`
@@ -1592,6 +1634,12 @@ function panelVibe() {
       ${map(VIBE_STEPS.filter(x => x[0] === 'share'), ([, t, d], i) => h`
         <div class="step">
           <span class="step__n">${i + 6}</span>
+          <div><div class="step__t">${t}</div><div class="step__d">${d}</div></div>
+        </div>`)}
+      <div class="howto__phase"><span>Phase 3</span> Update it <i></i></div>
+      ${map(VIBE_STEPS.filter(x => x[0] === 'update'), ([, t, d], i) => h`
+        <div class="step">
+          <span class="step__n">${i + 11}</span>
           <div><div class="step__t">${t}</div><div class="step__d">${d}</div></div>
         </div>`)}
     </div>
@@ -2019,6 +2067,7 @@ themeBtn.onclick = () => {
 };
 
 show('welcome');
+startCounter();
 </script>
 </body>
 </html>
